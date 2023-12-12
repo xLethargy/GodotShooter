@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmur34q3qxtb3"]
+
+[ext_resource type="Material" uid="uid://b8ffqh3jpjgod" path="res://Materials/Brown.tres" id="1_xe7ie"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_iqyfn"]
+material = ExtResource("1_xe7ie")
+size = Vector3(2, 0.2, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_031gi"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dbarl"]
+material = SubResource("StandardMaterial3D_031gi")
+size = Vector3(2, 0.2, 3)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_v21il"]
+
+[node name="Bed" type="Node3D"]
+
+[node name="Frame" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.129704, 0)
+mesh = SubResource("BoxMesh_iqyfn")
+
+[node name="Mattress" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.329397, 0)
+mesh = SubResource("BoxMesh_dbarl")
+skeleton = NodePath("../Frame")
+
+[node name="Pillow" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 2.77567e-08, 0, -4.37114e-08, -0.635, 1, -4.37114e-08, 1.21329e-15, 0, 0.326106, -0.933514)
+mesh = SubResource("CapsuleMesh_v21il")
