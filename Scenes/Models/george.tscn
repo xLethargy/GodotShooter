@@ -1,9 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://vt2st5iqhw1"]
+[gd_scene load_steps=4 format=3 uid="uid://c0w0aje611s2x"]
 
+[ext_resource type="Script" path="res://Scenes/Scripts/character.gd" id="1_7cuwn"]
 [ext_resource type="ArrayMesh" uid="uid://40byh30wpr25" path="res://Scenes/Models/george_Cube_003.res" id="1_b218b"]
 
-[node name="George" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_0scgf"]
+size = Vector3(0.397354, 2.00868, 0.109604)
 
-[node name="Plank" type="MeshInstance3D" parent="."]
+[node name="George" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.969993, 0)
+script = ExtResource("1_7cuwn")
+
+[node name="GeorgeMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 mesh = ExtResource("1_b218b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.91821e-05, 0, -0.0523605)
+shape = SubResource("BoxShape3D_0scgf")
