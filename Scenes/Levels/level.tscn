@@ -30,6 +30,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.551, 3.65952)
 [node name="Arch" parent="." instance=ExtResource("6_40jhw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46977, 0.023041, -2.06169)
 
+[node name="Projectiles" type="Node3D" parent="."]
+
 [connection signal="primary_fire" from="Frog" to="." method="_on_frog_primary_fire"]
 [connection signal="secondary_fire" from="Frog" to="." method="_on_frog_secondary_fire"]
 [connection signal="player_entered_gate" from="Arch" to="." method="_on_arch_player_entered_gate"]

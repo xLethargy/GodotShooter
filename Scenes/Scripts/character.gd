@@ -1,13 +1,18 @@
 extends CharacterBody3D
 
-signal primary_fire
+signal primary_fire(pos, rot)
 signal secondary_fire
 
 var can_primary: bool = true
 var can_secondary: bool = true
 
+var shooter_marker
+
 var speed: float = 7.0
 var rotation_speed: float = 12.0
+
+func _ready():
+	shooter_marker = $FrogPointer
 
 func _process(delta):
 	_character_movement(delta)
@@ -29,7 +34,7 @@ func _character_movement(delta):
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
 		
-		$FrogMeshes.rotation.y = lerp_angle($FrogMeshes.rotation.y, atan2( -direction.z , direction.x), delta * rotation_speed)
+		self.rotation.y = lerp_angle(self.rotation.y, atan2( direction.x , direction.z), delta * rotation_speed)
 	
 	velocity = direction * speed
 	
@@ -37,7 +42,7 @@ func _character_movement(delta):
 
 func _shoot_commands():
 	if Input.is_action_just_pressed("primary") and can_primary:
-		primary_fire.emit()
+		primary_fire.emit(shooter_marker.global_position, shooter_marker.global_rotation)
 		can_primary = false
 		$PrimaryTimer.start()
 	

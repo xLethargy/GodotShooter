@@ -6,10 +6,11 @@ func _on_arch_player_entered_gate():
 	print ("entered")
 
 
-func _on_frog_primary_fire():
+func _on_frog_primary_fire(laser_position, laser_rotation):
 	var laser = laser_scene.instantiate()
-	laser.position = $Frog.position
-	add_child(laser)
+	laser.position = laser_position
+	laser.rotation = laser_rotation
+	$Projectiles.add_child(laser)
 
 
 func _on_frog_secondary_fire():
