@@ -3,10 +3,10 @@
 [ext_resource type="Material" uid="uid://c1kvm3udgo3ru" path="res://Materials/green.tres" id="1_bnadi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eyvqb"]
-size = Vector3(19.3105, 0.479553, 19.9959)
+size = Vector3(50, 0.5, 50)
 
 [sub_resource type="BoxMesh" id="BoxMesh_rm0pf"]
-size = Vector3(20, 0.5, 20)
+size = Vector3(50, 0.5, 50)
 
 [node name="Ground" type="StaticBody3D"]
 

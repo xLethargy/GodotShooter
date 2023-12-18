@@ -1,5 +1,10 @@
 extends CharacterBody3D
 
+signal primary_fire
+signal secondary_fire
+
+var can_primary: bool = true
+var can_secondary: bool = true
 
 var speed: float = 7.0
 var rotation_speed: float = 12.0
@@ -31,7 +36,19 @@ func _character_movement(delta):
 	move_and_slide()
 
 func _shoot_commands():
-	if Input.is_action_just_pressed("primary"):
-		print("shoot primary")
-	if Input.is_action_just_pressed("secondary"):
-		print("shoot secondary")
+	if Input.is_action_just_pressed("primary") and can_primary:
+		primary_fire.emit()
+		can_primary = false
+		$PrimaryTimer.start()
+	
+	if Input.is_action_just_pressed("secondary") and can_secondary:
+		secondary_fire.emit()
+		can_secondary = false
+		$SecondaryTimer.start()
+
+func _on_primary_timer_timeout():
+	can_primary = true
+
+
+func _on_secondary_timer_timeout():
+	can_secondary = true
