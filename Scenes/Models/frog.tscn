@@ -157,6 +157,8 @@ size = Vector3(1.05103, 2.15039, 2.56555)
 
 [node name="Frog" type="CharacterBody3D" groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.551387, 0)
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_umu8j")
 
 [node name="FrogMeshes" type="Node3D" parent="."]

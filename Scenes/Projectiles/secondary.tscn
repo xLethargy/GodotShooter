@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Projectiles/secondary.gd" id="1_v53gc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0h022"]
+friction = 10.0
 bounce = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gsnrf"]
@@ -17,10 +18,12 @@ height = 0.2
 radius = 0.1
 
 [node name="Secondary" type="RigidBody3D"]
-collision_layer = 0
+collision_layer = 8
+collision_mask = 15
 physics_material_override = SubResource("PhysicsMaterial_0h022")
-linear_damp = 2.0
+linear_damp = 1.5
 script = ExtResource("1_v53gc")
+lob_power = 20.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_exyne")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8j8747j84cyk"]
+[gd_scene load_steps=8 format=3 uid="uid://b8j8747j84cyk"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/level.gd" id="1_bjxt8"]
 [ext_resource type="PackedScene" uid="uid://bmur34q3qxtb3" path="res://Scenes/Models/bed.tscn" id="2_axcxp"]
@@ -6,12 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://dopef7cwtoqp0" path="res://Scenes/Models/barrel.tscn" id="4_1tfmh"]
 [ext_resource type="PackedScene" uid="uid://dvlk6i0rwdqsv" path="res://Scenes/Models/frog.tscn" id="5_b6li5"]
 [ext_resource type="PackedScene" uid="uid://rs3qu0tl4e3p" path="res://Scenes/Models/arch.tscn" id="6_40jhw"]
+[ext_resource type="Script" path="res://Scenes/Levels/MainCamera.gd" id="6_vkk44"]
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_bjxt8")
 
 [node name="MainCamera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 5.779, 4)
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 5.75, 5.5)
+fov = 90.0
+script = ExtResource("6_vkk44")
 
 [node name="Bed" parent="." instance=ExtResource("2_axcxp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.0334305, 1.04182)
@@ -25,7 +28,7 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.45557, 0.626961, -1.03)
 
 [node name="Frog" parent="." instance=ExtResource("5_b6li5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.551, 3.65952)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.551, 3.5)
 
 [node name="Arch" parent="." instance=ExtResource("6_40jhw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46977, 0.023041, -2.06169)

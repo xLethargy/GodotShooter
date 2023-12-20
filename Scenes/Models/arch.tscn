@@ -84,6 +84,8 @@ shadow_mesh = SubResource("ArrayMesh_1qovp")
 size = Vector3(2.57593, 3.78711, 1.05566)
 
 [node name="Arch" type="StaticBody3D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_8wki0")
 
 [node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="."]
@@ -106,6 +108,8 @@ skeleton = NodePath("")
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.493011, 1.66932, 0)
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_2ybt4")

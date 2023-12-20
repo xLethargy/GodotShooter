@@ -18,6 +18,8 @@ size = Vector3(2, 0.2, 3)
 size = Vector3(1.99536, 0.647858, 2.9873)
 
 [node name="Bed" type="StaticBody3D"]
+collision_layer = 2
+collision_mask = 2
 
 [node name="Frame" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.129704, 0)
