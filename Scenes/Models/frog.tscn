@@ -192,7 +192,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="FrogPointer" type="Marker3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.390356, -1.02192)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.00343299, 0.388153, -1.05477)
 
 [connection signal="timeout" from="PrimaryTimer" to="." method="_on_primary_timer_timeout"]
 [connection signal="timeout" from="SecondaryTimer" to="." method="_on_secondary_timer_timeout"]

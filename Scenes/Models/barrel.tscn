@@ -70,7 +70,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_72lfr")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_qf3uq"]
-height = 1.19606
+height = 0.965292
 radius = 0.624041
 
 [node name="Barrel" type="StaticBody3D"]
@@ -83,4 +83,5 @@ mesh = SubResource("ArrayMesh_ibp03")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.123798, 0)
 shape = SubResource("CylinderShape3D_qf3uq")

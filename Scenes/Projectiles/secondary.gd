@@ -1,7 +1,7 @@
 extends RigidBody3D
 
-@export var lob_power: float = 15.0
-@export var vertical_lob_power: float = 5.0
+@export var lob_power: float = 10.0
+@export var vertical_lob_power: float = 4.0
 
 func _ready():
 	var direction_facing: Vector3 = get_global_transform().basis.z

@@ -23,7 +23,7 @@ collision_mask = 15
 physics_material_override = SubResource("PhysicsMaterial_0h022")
 linear_damp = 1.5
 script = ExtResource("1_v53gc")
-lob_power = 20.0
+lob_power = 15.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_exyne")
