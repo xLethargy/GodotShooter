@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cddoi1iqjkt35"]
+[gd_scene load_steps=31 format=3 uid="uid://cddoi1iqjkt35"]
 
 [ext_resource type="Script" path="res://Scenes/Models/arch.gd" id="1_tek5x"]
 
@@ -114,6 +114,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_e6hrg")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lx108"]
+size = Vector3(1.19434, 1.16406, 1.18652)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iu228"]
 resource_name = "grey"
@@ -425,6 +428,11 @@ shape = SubResource("CylinderShape3D_qf3uq")
 mesh = SubResource("ArrayMesh_gbn3l")
 skeleton = NodePath("")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="crat"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="crat/StaticBody3D"]
+shape = SubResource("BoxShape3D_lx108")
+
 [node name="spare pillar1" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -5.4045, 2, 0)
 mesh = SubResource("ArrayMesh_6w7o8")
@@ -456,7 +464,7 @@ mesh = SubResource("ArrayMesh_e8fna")
 skeleton = NodePath("")
 
 [node name="wall with arch" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.010422, 2.43071, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.01, 2.07526, 0)
 mesh = SubResource("ArrayMesh_8o1ww")
 skeleton = NodePath("")
 
@@ -469,7 +477,7 @@ script = ExtResource("1_tek5x")
 [node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="wall with arch/Node3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 depth = 2.1
-polygon = PackedVector2Array(-12.5636, -0.430095, -12.5636, 0.167449, -11.9287, 1.58662, -11.9287, 8.14093, -12.2835, 8.1596, -12.2835, 9.5601, -12.5449, 9.5601, -12.5636, 10.1763, -9.2771, 10.195, -9.31445, 9.70948, 7.45414, 9.67214, 7.45414, 10.195, 10.6846, 10.195, 10.6846, 9.61612, 10.4232, 9.57877, 10.4232, 8.1596, 10.0684, 8.14093, 10.031, 1.62396, 10.6659, 0.186123, 10.6659, -0.448768, 1.59073, -0.392749, 1.42267, 4.10751, 0.563705, 6.0682, -0.332613, 6.92717, -1.75178, 6.98319, -2.53606, 6.18024, -3.46972, 4.10751, -3.56309, 1.66131, -3.60043, -0.318055)
+polygon = PackedVector2Array(-10.4849, -0.468365, -10.4671, 9.64327, 7.45414, 9.67214, 7.45414, 10.195, 10.6846, 10.195, 10.6846, 9.61612, 10.4232, 9.57877, 10.4232, 8.1596, 10.0684, 8.14093, 10.031, 1.62396, 10.6659, 0.186123, 10.6659, -0.448768, 1.59073, -0.392749, 1.42267, 4.10751, 0.563705, 6.0682, -0.332613, 6.92717, -1.75178, 6.98319, -2.53606, 6.18024, -3.46972, 4.10751, -3.56309, 1.66131, -3.56393, -0.426402)
 
 [node name="Area3D" type="Area3D" parent="wall with arch/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.493011, 1.66932, 0)
