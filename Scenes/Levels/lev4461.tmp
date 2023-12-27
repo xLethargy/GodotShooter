@@ -9,18 +9,16 @@
 script = ExtResource("1_bjxt8")
 
 [node name="MainCamera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 5.75, 5.5)
+transform = Transform3D(1, 0, 0, 0, 0.93358, 0.358368, 0, -0.358368, 0.93358, 0, 2.27406, 5.5)
 fov = 90.0
 script = ExtResource("6_vkk44")
 
 [node name="Ground" parent="." instance=ExtResource("3_48q3l")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.866025, 0.353553, -0.353553, 0, 0.707107, 0.707107, 0.5, -0.612373, 0.612373, 0, 8.23244, 0)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 8.23244, 0)
 light_color = Color(0.313726, 0.756863, 0.894118, 1)
-light_energy = 0.3
-shadow_enabled = true
-shadow_opacity = 0.5
+light_energy = 0.5
 
 [node name="Frog" parent="." instance=ExtResource("5_b6li5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.551, 3.5)

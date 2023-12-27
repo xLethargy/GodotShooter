@@ -6,6 +6,8 @@ signal secondary_fire(pos, rot)
 var can_primary: bool = true
 var can_secondary: bool = true
 
+var shoot_spit: bool = false
+
 var shooter_marker
 
 var character_speed: float = 5.0
@@ -47,6 +49,11 @@ func _shoot_commands():
 	if Input.is_action_pressed("primary") and can_primary:
 		can_primary = false
 		_shoot_weapon_from_mouth(primary_fire, $PrimaryTimer)
+		if shoot_spit == false:
+			$SpitParticles.emitting = true
+			shoot_spit = true
+	elif Input.is_action_just_released("primary"):
+		shoot_spit = false
 	
 	if Input.is_action_just_pressed("secondary") and can_secondary:
 		can_secondary = false

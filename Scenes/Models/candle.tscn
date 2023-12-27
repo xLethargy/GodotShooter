@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhymf77e0mi6w"]
+
+[ext_resource type="ArrayMesh" uid="uid://cut5qiq31850t" path="res://Scenes/Models/ember2.tres" id="1_hqkkm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_42bnd"]
+albedo_color = Color(0.419608, 0.219608, 0.00784314, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xy1ld"]
+material = SubResource("StandardMaterial3D_42bnd")
+size = Vector3(0.5, 0.75, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wuihj"]
+size = Vector3(0.493896, 0.737732, 0.485352)
+
+[node name="Candle" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.377984, 0)
+mesh = SubResource("BoxMesh_xy1ld")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.371246, 0)
+shape = SubResource("BoxShape3D_wuihj")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.819975, 0)
+light_color = Color(0.870588, 0.827451, 0.0431373, 1)
+light_energy = 2.0
+light_size = 0.25
+light_specular = 3.0
+shadow_enabled = true
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.984336, 0)
+mesh = ExtResource("1_hqkkm")

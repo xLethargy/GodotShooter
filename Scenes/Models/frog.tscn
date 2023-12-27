@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dvlk6i0rwdqsv"]
+[gd_scene load_steps=16 format=3 uid="uid://dvlk6i0rwdqsv"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/character.gd" id="1_umu8j"]
 
@@ -155,6 +155,22 @@ shadow_mesh = SubResource("ArrayMesh_j1aya")
 [sub_resource type="BoxShape3D" id="BoxShape3D_wgy6g"]
 size = Vector3(1.05103, 2.15039, 2.56555)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l6ob1"]
+direction = Vector3(0, 0, -1)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.5
+gravity = Vector3(0, -3, 0)
+scale_min = 0.1
+scale_max = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yxr6v"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0, 0.964706, 0.901961, 0.258824)
+
+[sub_resource type="SphereMesh" id="SphereMesh_sip7p"]
+material = SubResource("StandardMaterial3D_yxr6v")
+
 [node name="Frog" type="CharacterBody3D" groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.551387, 0)
 collision_layer = 4
@@ -193,6 +209,15 @@ one_shot = true
 
 [node name="FrogPointer" type="Marker3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.00343299, 0.388153, -1.05477)
+
+[node name="SpitParticles" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.423638, -1.00872)
+emitting = false
+lifetime = 1.5
+one_shot = true
+speed_scale = 1.5
+process_material = SubResource("ParticleProcessMaterial_l6ob1")
+draw_pass_1 = SubResource("SphereMesh_sip7p")
 
 [connection signal="timeout" from="PrimaryTimer" to="." method="_on_primary_timer_timeout"]
 [connection signal="timeout" from="SecondaryTimer" to="." method="_on_secondary_timer_timeout"]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://45dgipw7hwo7"]
+
+[ext_resource type="ArrayMesh" uid="uid://do0fpalayeunh" path="res://Scenes/Models/ember.tres" id="1_gmrij"]
+
+[node name="ember" type="Node3D"]
+
+[node name="Cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.497329, 0, 0, 0, 0.497329, 0, 0, 0, 0.497329, 0, 0, 0)
+mesh = ExtResource("1_gmrij")
+skeleton = NodePath("")
