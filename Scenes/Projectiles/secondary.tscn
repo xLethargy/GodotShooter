@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddub1pcyicfwl"]
+[gd_scene load_steps=15 format=3 uid="uid://ddub1pcyicfwl"]
 
 [ext_resource type="Script" path="res://Scenes/Projectiles/secondary.gd" id="1_v53gc"]
 
@@ -7,7 +7,13 @@ friction = 10.0
 bounce = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gsnrf"]
-albedo_color = Color(0.0470588, 0.298039, 0.0745098, 1)
+albedo_color = Color(0.0784314, 0.67451, 0.662745, 1)
+metallic = 0.5
+metallic_specular = 1.0
+roughness = 0.25
+emission_enabled = true
+emission = Color(0.0784314, 0.67451, 0.662745, 1)
+emission_energy_multiplier = 10.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_exyne"]
 material = SubResource("StandardMaterial3D_gsnrf")
@@ -16,6 +22,57 @@ height = 0.2
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3iv5e"]
 radius = 0.1
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6q0cq"]
+emission_shape = 1
+emission_sphere_radius = 0.01
+direction = Vector3(0, 1, 0)
+spread = 136.098
+initial_velocity_min = 4.5
+initial_velocity_max = 5.0
+gravity = Vector3(0, -2, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ucl3r"]
+albedo_color = Color(0.815686, 0.133333, 0.117647, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_s1w6s"]
+material = SubResource("StandardMaterial3D_ucl3r")
+radius = 0.05
+height = 0.1
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8b71a"]
+emission_shape = 1
+emission_sphere_radius = 0.01
+direction = Vector3(0, 1, 0)
+spread = 136.098
+initial_velocity_min = 1.5
+initial_velocity_max = 2.0
+gravity = Vector3(0, -2, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pfoqh"]
+albedo_color = Color(0.937255, 0.968627, 0.196078, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_n3k5t"]
+material = SubResource("StandardMaterial3D_pfoqh")
+radius = 0.1
+height = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tjuuj"]
+emission_shape = 1
+emission_sphere_radius = 0.01
+direction = Vector3(0, 1, 0)
+spread = 136.098
+initial_velocity_min = 3.0
+initial_velocity_max = 3.5
+gravity = Vector3(0, -2, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0hb12"]
+albedo_color = Color(0.960784, 0.513726, 0.188235, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_dstcd"]
+material = SubResource("StandardMaterial3D_0hb12")
+radius = 0.075
+height = 0.15
 
 [node name="Secondary" type="RigidBody3D"]
 collision_layer = 8
@@ -30,3 +87,43 @@ mesh = SubResource("SphereMesh_exyne")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_3iv5e")
+
+[node name="RedExplosion2" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 100
+lifetime = 3.0
+one_shot = true
+speed_scale = 1.5
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_6q0cq")
+draw_pass_1 = SubResource("SphereMesh_s1w6s")
+
+[node name="YellowExplosion" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 100
+lifetime = 3.0
+one_shot = true
+speed_scale = 1.5
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_8b71a")
+draw_pass_1 = SubResource("SphereMesh_n3k5t")
+
+[node name="OrangeExplosion" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 100
+lifetime = 3.0
+one_shot = true
+speed_scale = 1.5
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_tjuuj")
+draw_pass_1 = SubResource("SphereMesh_dstcd")
+
+[node name="ExplosionTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="ExplosionTimer" to="." method="_on_explosion_timer_timeout"]

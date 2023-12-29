@@ -8,3 +8,10 @@ func _ready():
 	
 	linear_velocity = direction_facing * lob_power
 	linear_velocity.y += vertical_lob_power
+
+
+
+func _on_explosion_timer_timeout():
+	$RedExplosion2.emitting = true
+	$YellowExplosion.emitting = true
+	$OrangeExplosion.emitting = true

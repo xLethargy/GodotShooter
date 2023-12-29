@@ -49,22 +49,24 @@ func _shoot_commands():
 	if Input.is_action_pressed("primary") and can_primary:
 		can_primary = false
 		_shoot_weapon_from_mouth(primary_fire, $PrimaryTimer)
-		if shoot_spit == false:
-			$SpitParticles.emitting = true
-			shoot_spit = true
-	elif Input.is_action_just_released("primary"):
-		shoot_spit = false
 	
 	if Input.is_action_just_pressed("secondary") and can_secondary:
 		can_secondary = false
 		_shoot_weapon_from_mouth(secondary_fire, $SecondaryTimer)
+	
+	if Input.is_action_just_released("primary") or Input.is_action_just_released("secondary"):
+		shoot_spit = false
 
 func _shoot_weapon_from_mouth(weapon_signal, weapon_timer):
 	var weapon_position = shooter_marker.global_position
 	var weapon_rotation = shooter_marker.global_rotation
-		
+	
 	weapon_signal.emit(weapon_position, weapon_rotation)
 	weapon_timer.start()
+	
+	if shoot_spit == false:
+			$SpitParticles.emitting = true
+			shoot_spit = true
 
 func _on_primary_timer_timeout():
 	can_primary = true

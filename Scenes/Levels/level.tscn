@@ -26,6 +26,7 @@ shadow_opacity = 0.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.551, 3.5)
 
 [node name="Projectiles" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
 
 [connection signal="player_entered_gate" from="Ground/Arch" to="." method="_on_arch_player_entered_gate"]
 [connection signal="primary_fire" from="Frog" to="." method="_on_frog_primary_fire"]
