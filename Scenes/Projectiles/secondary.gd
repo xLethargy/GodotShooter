@@ -12,6 +12,13 @@ func _ready():
 
 
 func _on_explosion_timer_timeout():
-	$RedExplosion2.emitting = true
+	$RedExplosion.emitting = true
 	$YellowExplosion.emitting = true
 	$OrangeExplosion.emitting = true
+	$MeshInstance3D.visible = false
+	
+
+
+
+func _on_orange_explosion_finished():
+	queue_free()
