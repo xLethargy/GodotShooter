@@ -15,7 +15,7 @@ material = SubResource("StandardMaterial3D_1ngd3")
 size = Vector3(0.05, 0.05, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dvdu3"]
-size = Vector3(0.05, 0.05, 0.5)
+size = Vector3(0.05, 0.05, 0.149597)
 
 [node name="Primary" type="Area3D"]
 collision_layer = 8
@@ -26,4 +26,7 @@ script = ExtResource("1_ab5x4")
 mesh = SubResource("BoxMesh_26hoq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.23288)
 shape = SubResource("BoxShape3D_dvdu3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -31,6 +31,8 @@ spread = 136.098
 initial_velocity_min = 4.5
 initial_velocity_max = 5.0
 gravity = Vector3(0, -1, 0)
+collision_mode = 2
+collision_use_scale = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ucl3r"]
 albedo_color = Color(0.815686, 0.133333, 0.117647, 1)
@@ -48,6 +50,8 @@ spread = 136.098
 initial_velocity_min = 1.5
 initial_velocity_max = 2.0
 gravity = Vector3(0, -1, 0)
+collision_mode = 2
+collision_use_scale = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pfoqh"]
 albedo_color = Color(0.937255, 0.968627, 0.196078, 1)
@@ -65,6 +69,8 @@ spread = 136.098
 initial_velocity_min = 3.0
 initial_velocity_max = 3.5
 gravity = Vector3(0, -1, 0)
+collision_mode = 2
+collision_use_scale = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0hb12"]
 albedo_color = Color(0.960784, 0.513726, 0.188235, 1)

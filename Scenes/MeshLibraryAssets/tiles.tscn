@@ -1453,6 +1453,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.627, 0)
 mesh = SubResource("ArrayMesh_ibp03")
 skeleton = NodePath("")
 
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="BarrelMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000152588, -0.00689697, -0.00140381)
+size = Vector3(1.2514, 1.19617, 1.24719)
+
 [node name="Barrel2" type="StaticBody3D" parent="BarrelMesh"]
 collision_layer = 2
 collision_mask = 2
@@ -1461,13 +1465,17 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.123798, 0)
 shape = SubResource("CylinderShape3D_qf3uq")
 
-[node name="crat" type="MeshInstance3D" parent="."]
+[node name="crate" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_gbn3l")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="crat"]
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="crate"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00732422, -0.00531006, -0.00341797)
+size = Vector3(1.2002, 1.16125, 1.2041)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="crat/StaticBody3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="crate"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="crate/StaticBody3D"]
 shape = SubResource("BoxShape3D_lx108")
 
 [node name="spare pillar1" type="MeshInstance3D" parent="."]
