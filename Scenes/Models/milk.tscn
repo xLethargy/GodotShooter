@@ -259,5 +259,6 @@ shape = SubResource("BoxShape3D_bu1at")
 
 [node name="RespawnTestTimer" type="Timer" parent="."]
 wait_time = 3.0
+one_shot = true
 
 [connection signal="timeout" from="RespawnTestTimer" to="." method="_on_respawn_test_timer_timeout"]

@@ -105,6 +105,7 @@ _data = {
 collision_layer = 8
 collision_mask = 27
 physics_material_override = SubResource("PhysicsMaterial_0h022")
+continuous_cd = true
 linear_damp = 1.5
 script = ExtResource("1_jpo3g")
 lob_power = 15.0

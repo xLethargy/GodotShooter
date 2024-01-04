@@ -1,6 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://d26ru0c6wf71j"]
+[gd_scene load_steps=6 format=3 uid="uid://d26ru0c6wf71j"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/primary.gd" id="1_428h5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dvdu3"]
+size = Vector3(0.05, 0.05, 0.149597)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ngd3"]
 albedo_color = Color(0, 0.588235, 0.686275, 1)
@@ -14,25 +17,38 @@ emission_energy_multiplier = 15.0
 material = SubResource("StandardMaterial3D_1ngd3")
 size = Vector3(0.05, 0.05, 0.5)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_dvdu3"]
-size = Vector3(0.05, 0.05, 0.149597)
+[sub_resource type="BoxShape3D" id="BoxShape3D_mwwbx"]
+size = Vector3(0.0478516, 0.0449219, 0.386841)
 
-[node name="Primary" type="Area3D"]
+[node name="Primary" type="RigidBody3D"]
 collision_layer = 8
 collision_mask = 19
+collision_priority = 5.0
+gravity_scale = 0.0
+lock_rotation = true
+continuous_cd = true
 script = ExtResource("1_428h5")
+
+[node name="CollisionDetector" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 19
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.174918)
+shape = SubResource("BoxShape3D_dvdu3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_26hoq")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.23288)
-shape = SubResource("BoxShape3D_dvdu3")
 
 [node name="DestroyTimer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
 autostart = true
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0536499)
+shape = SubResource("BoxShape3D_mwwbx")
+disabled = true
+
+[connection signal="body_entered" from="CollisionDetector" to="." method="_on_collision_detector_body_entered"]
 [connection signal="timeout" from="DestroyTimer" to="." method="_on_destroy_timer_timeout"]
