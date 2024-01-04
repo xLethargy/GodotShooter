@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://rs3qu0tl4e3p"]
 
-[ext_resource type="Script" path="res://Scenes/Models/arch.gd" id="1_8wki0"]
+[ext_resource type="Script" path="res://Scenes/Scripts/arch.gd" id="1_8wki0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p2r5l"]
 resource_name = "grey.001"

@@ -1,6 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://dx2kwqf82oxsf"]
 
-[ext_resource type="ArrayMesh" uid="uid://cut5qiq31850t" path="res://Scenes/Models/ember2.tres" id="2_mp2xj"]
+[ext_resource type="Material" uid="uid://b8ffqh3jpjgod" path="res://Materials/Brown.tres" id="1_2io2l"]
+[ext_resource type="ArrayMesh" uid="uid://cut5qiq31850t" path="res://Scenes/Models/ember_candle.tres" id="2_mp2xj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3estl"]
 resource_name = "wood"
@@ -71,10 +72,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_72lfr")
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_qf3uq"]
-height = 0.965292
-radius = 0.624041
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1pa0h"]
 resource_name = "wood"
 cull_mode = 2
@@ -115,8 +112,10 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_e6hrg")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_smew4"]
-size = Vector3(1.19507, 1.19043, 1.20313)
+[sub_resource type="CylinderMesh" id="CylinderMesh_ou1jt"]
+material = ExtResource("1_2io2l")
+top_radius = 0.1
+bottom_radius = 0.1
 
 [node name="TestGridMap" type="Node3D"]
 
@@ -125,29 +124,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.627, 0)
 mesh = SubResource("ArrayMesh_ibp03")
 skeleton = NodePath("")
 
-[node name="Barrel" type="StaticBody3D" parent="BarrelMesh"]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BarrelMesh/Barrel"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.123798, 0)
-shape = SubResource("CylinderShape3D_qf3uq")
-
-[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="BarrelMesh/Barrel"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00302124, -0.00683594, 0.00158691)
-size = Vector3(1.2442, 1.19922, 1.24438)
-
 [node name="CrateMesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_076bm")
 skeleton = NodePath("")
-
-[node name="Crate" type="StaticBody3D" parent="CrateMesh"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CrateMesh/Crate"]
-shape = SubResource("BoxShape3D_smew4")
-
-[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="CrateMesh/Crate"]
-size = Vector3(1.20313, 1.19116, 1.20313)
 
 [node name="Campfire" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.639819, 0)
@@ -155,9 +134,13 @@ mesh = ExtResource("2_mp2xj")
 skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Campfire"]
-transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, 0, -0.884003, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.884003, 0)
 light_color = Color(0.901961, 0.458824, 0, 1)
 light_energy = 10.0
 light_size = 1.0
 light_specular = 3.0
 shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_2io2l")
+mesh = SubResource("CylinderMesh_ou1jt")

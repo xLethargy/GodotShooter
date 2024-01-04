@@ -174,7 +174,7 @@ material = SubResource("StandardMaterial3D_yxr6v")
 [node name="Frog" type="CharacterBody3D" groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.551387, 0)
 collision_layer = 4
-collision_mask = 3
+collision_mask = 19
 script = ExtResource("1_umu8j")
 
 [node name="FrogMeshes" type="Node3D" parent="."]
@@ -204,11 +204,11 @@ wait_time = 0.25
 one_shot = true
 
 [node name="SecondaryTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 5.0
 one_shot = true
 
 [node name="FrogPointer" type="Marker3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.00343299, 0.388153, -1.05477)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.00343299, 0.388153, -0.914934)
 
 [node name="SpitParticles" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.423638, -1.00872)
@@ -218,6 +218,10 @@ one_shot = true
 speed_scale = 1.5
 process_material = SubResource("ParticleProcessMaterial_l6ob1")
 draw_pass_1 = SubResource("SphereMesh_sip7p")
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0239258, -0.328735)
+size = Vector3(0.522461, 1.06836, 1.27905)
 
 [connection signal="timeout" from="PrimaryTimer" to="." method="_on_primary_timer_timeout"]
 [connection signal="timeout" from="SecondaryTimer" to="." method="_on_secondary_timer_timeout"]

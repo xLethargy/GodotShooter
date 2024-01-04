@@ -7,5 +7,16 @@ func _process(delta):
 	position += direction_facing * speed * delta
 
 func _on_body_entered(body):
-	if !body.is_in_group("Player"):
+	if "hit" in body:
+		body.hit()
 		queue_free()
+	
+	
+	queue_free()
+	
+
+func _on_enemy_hit():
+	pass
+
+func _on_destroy_timer_timeout():
+	queue_free()

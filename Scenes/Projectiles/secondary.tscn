@@ -1,6 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://ddub1pcyicfwl"]
+[gd_scene load_steps=17 format=3 uid="uid://ddub1pcyicfwl"]
 
-[ext_resource type="Script" path="res://Scenes/Projectiles/secondary.gd" id="1_v53gc"]
+[ext_resource type="Script" path="res://Scenes/Scripts/secondary.gd" id="1_jpo3g"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0h022"]
 friction = 10.0
@@ -80,12 +80,33 @@ material = SubResource("StandardMaterial3D_0hb12")
 radius = 0.075
 height = 0.15
 
+[sub_resource type="Animation" id="Animation_2bhkp"]
+resource_name = "light_flicker"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LightFlicker:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 2, 3, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dfenc"]
+_data = {
+"light_flicker": SubResource("Animation_2bhkp")
+}
+
 [node name="Secondary" type="RigidBody3D"]
 collision_layer = 8
-collision_mask = 15
+collision_mask = 27
 physics_material_override = SubResource("PhysicsMaterial_0h022")
 linear_damp = 1.5
-script = ExtResource("1_v53gc")
+script = ExtResource("1_jpo3g")
 lob_power = 15.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -128,9 +149,26 @@ process_material = SubResource("ParticleProcessMaterial_tjuuj")
 draw_pass_1 = SubResource("SphereMesh_dstcd")
 
 [node name="ExplosionTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 4.5
+one_shot = true
+autostart = true
+
+[node name="LightFlicker" type="OmniLight3D" parent="."]
+visible = false
+light_color = Color(0.0784314, 0.67451, 0.662745, 1)
+light_energy = 3.0
+
+[node name="LightAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dfenc")
+}
+autoplay = "light_flicker"
+
+[node name="PlayerCollisionTimer" type="Timer" parent="."]
+wait_time = 0.25
 one_shot = true
 autostart = true
 
 [connection signal="finished" from="OrangeExplosion" to="." method="_on_orange_explosion_finished"]
 [connection signal="timeout" from="ExplosionTimer" to="." method="_on_explosion_timer_timeout"]
+[connection signal="timeout" from="PlayerCollisionTimer" to="." method="_on_player_collision_timer_timeout"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d26ru0c6wf71j"]
 
-[ext_resource type="Script" path="res://Scenes/Projectiles/primary.gd" id="1_ab5x4"]
+[ext_resource type="Script" path="res://Scenes/Scripts/primary.gd" id="1_428h5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ngd3"]
 albedo_color = Color(0, 0.588235, 0.686275, 1)
@@ -19,8 +19,8 @@ size = Vector3(0.05, 0.05, 0.149597)
 
 [node name="Primary" type="Area3D"]
 collision_layer = 8
-collision_mask = 15
-script = ExtResource("1_ab5x4")
+collision_mask = 19
+script = ExtResource("1_428h5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_26hoq")
@@ -29,4 +29,10 @@ mesh = SubResource("BoxMesh_26hoq")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.23288)
 shape = SubResource("BoxShape3D_dvdu3")
 
+[node name="DestroyTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="DestroyTimer" to="." method="_on_destroy_timer_timeout"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=102 format=3 uid="uid://cddoi1iqjkt35"]
 
-[ext_resource type="Script" path="res://Scenes/Models/arch.gd" id="1_tek5x"]
-[ext_resource type="ArrayMesh" uid="uid://cut5qiq31850t" path="res://Scenes/Models/ember2.tres" id="2_ffic7"]
+[ext_resource type="Script" path="res://Scenes/Scripts/arch.gd" id="1_tek5x"]
+[ext_resource type="ArrayMesh" uid="uid://cut5qiq31850t" path="res://Scenes/Models/ember_candle.tres" id="2_ffic7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3estl"]
 resource_name = "wood"

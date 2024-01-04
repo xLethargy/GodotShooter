@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://45dgipw7hwo7"]
 
-[ext_resource type="ArrayMesh" uid="uid://do0fpalayeunh" path="res://Scenes/Models/ember.tres" id="1_gmrij"]
+[ext_resource type="ArrayMesh" uid="uid://do0fpalayeunh" path="res://Scenes/Models/ember_campfire.tres" id="1_gmrij"]
 
 [node name="ember" type="Node3D"]
 

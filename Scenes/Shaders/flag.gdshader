@@ -8,7 +8,7 @@ uniform float face_distortion = 0.25;
 render_mode cull_disabled;
 
 uniform sampler2D iChannel0;
-//uniform vec4 tint_colour = vec4(0.0, 0.5,0.99, 1); THIS COLOUR IS BLUE
+//uniform vec4 tint_colour = vec4(0.0, 0.5,0.99, 1);
 
 void vertex() {
 	vec2 base_uv_offest = UV * uv_offset_scale;

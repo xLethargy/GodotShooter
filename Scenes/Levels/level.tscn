@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://b8j8747j84cyk"]
 
-[ext_resource type="Script" path="res://Scenes/Levels/level.gd" id="1_bjxt8"]
+[ext_resource type="Script" path="res://Scenes/Scripts/level.gd" id="1_bjxt8"]
 [ext_resource type="PackedScene" uid="uid://ch2u6tybwvg0d" path="res://Scenes/Models/ground.tscn" id="3_48q3l"]
 [ext_resource type="PackedScene" uid="uid://dvlk6i0rwdqsv" path="res://Scenes/Models/frog.tscn" id="5_b6li5"]
-[ext_resource type="PackedScene" uid="uid://dp58q103ssn0d" path="res://Scenes/Models/flag.tscn" id="5_y46wx"]
-[ext_resource type="Script" path="res://Scenes/Levels/MainCamera.gd" id="6_vkk44"]
+[ext_resource type="PackedScene" uid="uid://dnm35jm6kt4o0" path="res://Scenes/Models/milk.tscn" id="5_b61y2"]
+[ext_resource type="Script" path="res://Scenes/Scripts/MainCamera.gd" id="6_vkk44"]
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_bjxt8")
@@ -29,8 +29,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.551, 3.5)
 [node name="Projectiles" type="Node3D" parent="."]
 metadata/_edit_lock_ = true
 
-[node name="ALIENpole" parent="." instance=ExtResource("5_y46wx")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -7.56644, -0.118261, -12.4293)
+[node name="EVILmilk" parent="." instance=ExtResource("5_b61y2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.00567681, 0)
 
 [connection signal="player_entered_gate" from="Ground/Arch" to="." method="_on_arch_player_entered_gate"]
 [connection signal="primary_fire" from="Frog" to="." method="_on_frog_primary_fire"]

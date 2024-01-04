@@ -1,7 +1,6 @@
-[gd_scene load_steps=70 format=3 uid="uid://b1oltjcbnuebx"]
+[gd_scene load_steps=69 format=3 uid="uid://b1oltjcbnuebx"]
 
-[ext_resource type="ArrayMesh" uid="uid://do0fpalayeunh" path="res://Scenes/Models/ember.tres" id="1_so1y7"]
-[ext_resource type="ArrayMesh" uid="uid://cut5qiq31850t" path="res://Scenes/Models/ember2.tres" id="3_ujkil"]
+[ext_resource type="ArrayMesh" uid="uid://do0fpalayeunh" path="res://Scenes/Models/ember_campfire.tres" id="1_5apui"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g2pav"]
 emission_shape_offset = Vector3(0, -1.025, 0)
@@ -13,6 +12,8 @@ gravity = Vector3(0, 0, 0)
 scale_min = 0.1
 scale_max = 0.2
 color = Color(0.662745, 0.54902, 0.207843, 1)
+collision_mode = 2
+collision_use_scale = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ulw1w"]
 albedo_color = Color(0, 0, 0, 0.262745)
@@ -29,8 +30,10 @@ spread = 20.0
 initial_velocity_min = 1.0
 initial_velocity_max = 1.5
 gravity = Vector3(0, 0, 0)
-scale_min = 0.2
-scale_max = 0.25
+scale_min = 0.25
+scale_max = 0.3
+collision_mode = 2
+collision_use_scale = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bcyng"]
 resource_name = "rock"
@@ -1022,6 +1025,8 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_dawoc")
 
 [node name="Campfire" type="StaticBody3D"]
+collision_layer = 2
+collision_mask = 2
 
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59091, 0)
@@ -1033,18 +1038,14 @@ process_material = SubResource("ParticleProcessMaterial_g2pav")
 draw_pass_1 = SubResource("SphereMesh_hb22e")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.657243, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.601782, 0)
 amount = 10
 lifetime = 0.75
 speed_scale = 0.5
 randomness = 1.0
 visibility_aabb = AABB(-4, -4.91541, -4, 8, 8, 8)
 process_material = SubResource("ParticleProcessMaterial_2fxi7")
-draw_pass_1 = ExtResource("1_so1y7")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.639819, 0)
-mesh = ExtResource("3_ujkil")
+draw_pass_1 = ExtResource("1_5apui")
 
 [node name="campfi" type="Node3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.00144267, 0.101636, -0.0220947)
@@ -1200,7 +1201,7 @@ mesh = SubResource("ArrayMesh_rws2q")
 skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.374618, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.151373, 0)
 light_color = Color(0.901961, 0.458824, 0, 1)
 light_energy = 10.0
 light_size = 1.0
