@@ -69,8 +69,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_72lfr")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_m4dti"]
-size = Vector3(1.24316, 1.21582, 1.24512)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4274u"]
+height = 1.21555
+radius = 0.628925
 
 [node name="Barrel" type="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.627, 0)
@@ -83,7 +84,7 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00222719, -0.00608611, 0)
-shape = SubResource("BoxShape3D_m4dti")
+shape = SubResource("CylinderShape3D_4274u")
 
 [node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00302124, -0.00683594, 0.00158691)

@@ -253,7 +253,7 @@ skeleton = NodePath("")
 mesh = SubResource("ArrayMesh_21mmk")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="Hitbox" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.900978, 0)
 shape = SubResource("BoxShape3D_bu1at")
 

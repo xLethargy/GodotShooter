@@ -4,6 +4,7 @@ const barrel = preload("res://Scenes/Models/barrel.tscn")
 const crate = preload("res://Scenes/Models/crate.tscn")
 const campfire = preload("res://Scenes/Models/campfire.tscn")
 const flag = preload("res://Scenes/Models/flag.tscn")
+const light_holder = preload("res://Scenes/Models/light_holder.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,11 +12,13 @@ func _ready():
 	var crates = get_used_cells_by_item(1)
 	var campfires = get_used_cells_by_item(2)
 	var flags = get_used_cells_by_item(3)
+	var light_holders = get_used_cells_by_item(4)
 	
 	tile_replacer(crates, crate)
 	tile_replacer(barrels, barrel)
 	tile_replacer(campfires, campfire)
 	tile_replacer(flags, flag)
+	tile_replacer(light_holders, light_holder)
 
 func tile_replacer(cells : Array, instance : PackedScene):
 	for i in cells:

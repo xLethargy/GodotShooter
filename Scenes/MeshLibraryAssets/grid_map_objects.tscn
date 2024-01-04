@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://dx2kwqf82oxsf"]
+[gd_scene load_steps=13 format=3 uid="uid://db6tqwy5rxua2"]
 
-[ext_resource type="Material" uid="uid://b8ffqh3jpjgod" path="res://Materials/Brown.tres" id="1_2io2l"]
-[ext_resource type="ArrayMesh" uid="uid://cut5qiq31850t" path="res://Scenes/Models/ember_candle.tres" id="2_mp2xj"]
+[ext_resource type="ArrayMesh" uid="uid://cut5qiq31850t" path="res://Scenes/Models/ember_candle.tres" id="1_rgjei"]
+[ext_resource type="Material" uid="uid://b8ffqh3jpjgod" path="res://Materials/Brown.tres" id="2_53g0r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3estl"]
 resource_name = "wood"
@@ -113,9 +113,16 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_e6hrg")
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ou1jt"]
-material = ExtResource("1_2io2l")
+material = ExtResource("2_53g0r")
 top_radius = 0.1
 bottom_radius = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_da0ua"]
+albedo_color = Color(0.317647, 0.101961, 0.00784314, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2bbod"]
+material = SubResource("StandardMaterial3D_da0ua")
+size = Vector3(0.1, 0.75, 0.1)
 
 [node name="GridMapObjects" type="Node3D"]
 
@@ -130,7 +137,7 @@ skeleton = NodePath("")
 
 [node name="Campfire" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.639819, 0)
-mesh = ExtResource("2_mp2xj")
+mesh = ExtResource("1_rgjei")
 skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Campfire"]
@@ -141,6 +148,10 @@ light_size = 1.0
 light_specular = 3.0
 shadow_enabled = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = ExtResource("1_2io2l")
+[node name="FlagMesh" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_53g0r")
 mesh = SubResource("CylinderMesh_ou1jt")
+
+[node name="LightHolderMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.978509, 0.206204, 0, -0.206204, 0.978509, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_2bbod")
