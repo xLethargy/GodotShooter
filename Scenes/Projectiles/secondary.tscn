@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Scenes/Scripts/secondary.gd" id="1_jpo3g"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0h022"]
-friction = 10.0
-bounce = 0.5
+friction = 0.0
+bounce = 0.75
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gsnrf"]
 albedo_color = Color(0.0784314, 0.67451, 0.662745, 1)
@@ -36,6 +36,8 @@ collision_use_scale = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ucl3r"]
 albedo_color = Color(0.815686, 0.133333, 0.117647, 1)
+emission_enabled = true
+emission = Color(0.815686, 0.133333, 0.117647, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_s1w6s"]
 material = SubResource("StandardMaterial3D_ucl3r")
@@ -55,6 +57,8 @@ collision_use_scale = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pfoqh"]
 albedo_color = Color(0.937255, 0.968627, 0.196078, 1)
+emission_enabled = true
+emission = Color(0.937255, 0.968627, 0.196078, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_n3k5t"]
 material = SubResource("StandardMaterial3D_pfoqh")
@@ -74,6 +78,8 @@ collision_use_scale = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0hb12"]
 albedo_color = Color(0.960784, 0.513726, 0.188235, 1)
+emission_enabled = true
+emission = Color(0.960784, 0.513726, 0.188235, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_dstcd"]
 material = SubResource("StandardMaterial3D_0hb12")
@@ -105,10 +111,10 @@ _data = {
 collision_layer = 8
 collision_mask = 27
 physics_material_override = SubResource("PhysicsMaterial_0h022")
+lock_rotation = true
 continuous_cd = true
-linear_damp = 1.5
+linear_damp = 1.0
 script = ExtResource("1_jpo3g")
-lob_power = 15.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_exyne")

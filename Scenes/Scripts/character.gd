@@ -40,7 +40,7 @@ func _character_movement(_delta):
 	
 	velocity = direction * character_speed
 	
-	look_at(_screen_point_to_ray(), Vector3.UP)
+	look_at($"..".screen_point_to_ray("player"), Vector3.UP)
 	global_rotation.x = 0
 	move_and_slide()
 	global_position.y = 0.551
@@ -74,23 +74,3 @@ func _on_primary_timer_timeout():
 
 func _on_secondary_timer_timeout():
 	can_secondary = true
-
-func _screen_point_to_ray():
-	var space_state = get_world_3d().direct_space_state
-	
-	var mouse_position = get_viewport().get_mouse_position() #finds mouse location
-	var camera = get_tree().root.get_camera_3d() #grabs camera node
-	
-	var ray_length = 2000 # length of raycast
-	var ray_origin = camera.project_ray_origin(mouse_position) #where the raycast starts
-	var ray_end = ray_origin + camera.project_ray_normal(mouse_position) * ray_length #where the raycast hits and ends
-	var ray_result = space_state.intersect_ray(PhysicsRayQueryParameters3D.create(ray_origin, ray_end, 1)) # the data of the raycast hitting the point
-	
-	var ray_position = ray_result.get("position", Vector3(0, 0, 0)) # grabbing the position field from the ray_result
-	
-	if ray_position.y != 0:
-		return ray_position
-	else:
-		return Vector3()
-
-
