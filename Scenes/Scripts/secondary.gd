@@ -1,8 +1,10 @@
 extends RigidBody3D
 
+signal grenade_velocity
+
 @export var vertical_lob_power: float = 4.0
 
-@onready var level_node = get_node("../../.")
+@onready var level_node = get_tree().current_scene
 
 
 func _ready():

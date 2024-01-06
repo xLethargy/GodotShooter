@@ -1,15 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8j8747j84cyk"]
+[gd_scene load_steps=5 format=3 uid="uid://b8j8747j84cyk"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/level.gd" id="1_bjxt8"]
-[ext_resource type="Material" uid="uid://c1kvm3udgo3ru" path="res://Materials/green.tres" id="3_dgoc3"]
 [ext_resource type="PackedScene" uid="uid://dvlk6i0rwdqsv" path="res://Scenes/Models/frog.tscn" id="5_b6li5"]
 [ext_resource type="Script" path="res://Scenes/Scripts/MainCamera.gd" id="6_vkk44"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_rm0pf"]
-size = Vector3(100, 0.5, 100)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_eyvqb"]
-size = Vector3(100, 0.5, 100)
+size = Vector3(100, 0.99762, 100)
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_bjxt8")
@@ -23,18 +19,12 @@ script = ExtResource("6_vkk44")
 [node name="Ground" type="StaticBody3D" parent="."]
 collision_mask = 0
 
-[node name="GroundMesh" type="MeshInstance3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.252918, 0)
-material_override = ExtResource("3_dgoc3")
-mesh = SubResource("BoxMesh_rm0pf")
-
 [node name="GroundCollision" type="CollisionShape3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0862637, -0.213318, -0.0521049)
 shape = SubResource("BoxShape3D_eyvqb")
 
 [node name="GroundParticleCollision" type="GPUParticlesCollisionBox3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.23279, 0)
-size = Vector3(100.505, 0.539307, 100.084)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.296572, 0)
+size = Vector3(100.505, 0.411743, 100.084)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.866025, 0.353553, -0.353553, 0, 0.707107, 0.707107, 0.5, -0.612373, 0.612373, 0, 8.23244, 0)

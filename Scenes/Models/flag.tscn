@@ -107,6 +107,8 @@ size = Vector3(0.288635, 5.10382, 0.331787)
 
 [node name="ALIENpole" type="StaticBody3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.72518, 0)
+collision_layer = 2
+collision_mask = 0
 
 [node name="PoleStick" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.183, 0, 0, 0, 1, 0, 0, 0, 0.159, 0.00158095, -0.489599, 0)

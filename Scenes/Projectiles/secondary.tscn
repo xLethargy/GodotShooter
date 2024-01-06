@@ -125,7 +125,7 @@ shape = SubResource("SphereShape3D_3iv5e")
 [node name="RedExplosion" type="GPUParticles3D" parent="."]
 emitting = false
 amount = 100
-lifetime = 5.0
+lifetime = 10.0
 one_shot = true
 speed_scale = 3.0
 explosiveness = 1.0
@@ -136,7 +136,7 @@ draw_pass_1 = SubResource("SphereMesh_s1w6s")
 [node name="YellowExplosion" type="GPUParticles3D" parent="."]
 emitting = false
 amount = 100
-lifetime = 5.0
+lifetime = 10.0
 one_shot = true
 speed_scale = 3.0
 explosiveness = 1.0
@@ -147,7 +147,7 @@ draw_pass_1 = SubResource("SphereMesh_n3k5t")
 [node name="OrangeExplosion" type="GPUParticles3D" parent="."]
 emitting = false
 amount = 100
-lifetime = 5.0
+lifetime = 10.0
 one_shot = true
 speed_scale = 3.0
 explosiveness = 1.0

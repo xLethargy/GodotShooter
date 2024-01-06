@@ -13,6 +13,8 @@ var shooter_marker
 var character_speed: float = 5.0
 #var rotation_speed: float = 12.0
 
+@onready var level_node : Node = get_tree().current_scene
+
 func _ready():
 	shooter_marker = $FrogPointer
 
@@ -40,7 +42,7 @@ func _character_movement(_delta):
 	
 	velocity = direction * character_speed
 	
-	look_at($"..".screen_point_to_ray("player"), Vector3.UP)
+	look_at(level_node.screen_point_to_ray("player"), Vector3.UP)
 	global_rotation.x = 0
 	move_and_slide()
 	global_position.y = 0.551

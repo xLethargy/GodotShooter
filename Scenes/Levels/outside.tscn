@@ -1,18 +1,23 @@
-[gd_scene load_steps=9 format=3 uid="uid://k8vgpgtlxfv2"]
+[gd_scene load_steps=11 format=3 uid="uid://k8vgpgtlxfv2"]
 
 [ext_resource type="PackedScene" uid="uid://b8j8747j84cyk" path="res://Scenes/Levels/level.tscn" id="1_r1cm1"]
 [ext_resource type="MeshLibrary" uid="uid://bab22s42s4tas" path="res://Scenes/MeshLibraryAssets/ObjectMeshLibrary2.tres" id="2_et0e2"]
 [ext_resource type="Script" path="res://Scenes/Scripts/outside.gd" id="2_ppclg"]
+[ext_resource type="Material" uid="uid://c1kvm3udgo3ru" path="res://Materials/green.tres" id="3_i0tu2"]
 [ext_resource type="MeshLibrary" uid="uid://dyxy7mdltb7q7" path="res://Scenes/MeshLibraryAssets/ObjectMeshLibrary.tres" id="3_yaw43"]
 [ext_resource type="Script" path="res://Scenes/Scripts/Gridmap.gd" id="4_y84ex"]
 [ext_resource type="PackedScene" uid="uid://rs3qu0tl4e3p" path="res://Scenes/Models/arch.tscn" id="5_ljwwo"]
 [ext_resource type="PackedScene" uid="uid://dnm35jm6kt4o0" path="res://Scenes/Models/milk.tscn" id="6_br2e1"]
 [ext_resource type="PackedScene" uid="uid://b48pm2h738ibb" path="res://Scenes/Models/chair.tscn" id="7_sh00u"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_v8rbs"]
+material = ExtResource("3_i0tu2")
+size = Vector3(100, 1, 100)
+
 [node name="Outside" instance=ExtResource("1_r1cm1")]
 script = ExtResource("2_ppclg")
 
-[node name="WallGridMap" type="GridMap" parent="Ground" index="3"]
+[node name="WallGridMap" type="GridMap" parent="Ground" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0324727, 0)
 mesh_library = ExtResource("2_et0e2")
 cell_size = Vector3(1, 5, 1)
@@ -24,7 +29,7 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="ObjectsGridMap" type="GridMap" parent="Ground" index="4"]
+[node name="ObjectsGridMap" type="GridMap" parent="Ground" index="1"]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0.867527, 0)
 mesh_library = ExtResource("3_yaw43")
 cell_size = Vector3(0.2, 1.2, 0.2)
@@ -36,14 +41,15 @@ data = {
 script = ExtResource("4_y84ex")
 metadata/_editor_floor_ = Vector3(0, -1, -29)
 
-[node name="Arch" parent="Ground" index="5" instance=ExtResource("5_ljwwo")]
+[node name="Arch" parent="Ground" index="2" instance=ExtResource("5_ljwwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.359394, 0.0366823, -4.43888)
 
-[node name="Chair" parent="Ground" index="6" instance=ExtResource("7_sh00u")]
+[node name="Chair" parent="Ground" index="3" instance=ExtResource("7_sh00u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
 
-[node name="Frog" parent="." index="3"]
-unique_name_in_owner = true
+[node name="GroundMesh" type="MeshInstance3D" parent="Ground" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("BoxMesh_v8rbs")
 
 [node name="EVILmilk" parent="." index="4" instance=ExtResource("6_br2e1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00567681, 0)
