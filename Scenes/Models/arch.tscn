@@ -1,6 +1,13 @@
 [gd_scene load_steps=6 format=3 uid="uid://rs3qu0tl4e3p"]
 
-[ext_resource type="Script" path="res://Scenes/Scripts/arch.gd" id="1_8wki0"]
+[sub_resource type="GDScript" id="GDScript_laast"]
+script/source = "extends StaticBody3D
+
+signal player_entered_gate
+
+func _on_area_3d_body_entered(_body):
+	player_entered_gate.emit()
+"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p2r5l"]
 resource_name = "grey.001"
@@ -48,7 +55,7 @@ size = Vector3(2.57593, 3.78711, 1.05566)
 [node name="Arch" type="StaticBody3D"]
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("1_8wki0")
+script = SubResource("GDScript_laast")
 
 [node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -70,5 +77,3 @@ collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_2ybt4")
-
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

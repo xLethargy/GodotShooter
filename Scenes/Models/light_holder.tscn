@@ -185,41 +185,48 @@ transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 
 
 [node name="Cube" type="MeshInstance3D" parent="Meshes"]
 transform = Transform3D(0.267854, 0, 0, 0, 0.161781, 0, 0, 0, 0.212957, -1.35248, 0, 0)
+cast_shadow = 0
 mesh = SubResource("ArrayMesh_ii8l5")
 skeleton = NodePath("")
 
 [node name="Cube_001" type="MeshInstance3D" parent="Meshes"]
-transform = Transform3D(7.52239e-08, 0.0877241, 0, -0.420682, 1.56863e-08, 0, 0, 0, 0.701804, 0.0266087, 6.74041, 0)
+transform = Transform3D(7.52239e-08, 0.0877241, 0, -0.420682, 1.56863e-08, 0, 2.11758e-22, 8.88178e-16, 0.701804, 0.0623715, 6.65234, 0.0840521)
+cast_shadow = 0
 mesh = SubResource("ArrayMesh_r5btm")
 skeleton = NodePath("")
 
 [node name="Cube_002" type="MeshInstance3D" parent="Meshes"]
 transform = Transform3D(0.344123, 0.832086, 0, -0.0725126, 3.94882, 0, 0, 0, 0.346347, 2.8447, 5.10652, 0)
+cast_shadow = 0
 mesh = SubResource("ArrayMesh_ecmw5")
 skeleton = NodePath("")
 
 [node name="Cube_004" type="MeshInstance3D" parent="Meshes"]
 transform = Transform3D(0, 0.206189, 0.164533, 1.03328e-08, 0.978512, -0.0346699, -0.462281, 2.23517e-08, 0, 3.94123, 10.1324, -0.0362514)
+cast_shadow = 0
 mesh = SubResource("ArrayMesh_vb6f8")
 skeleton = NodePath("")
 
 [node name="Plane" type="MeshInstance3D" parent="Meshes"]
 transform = Transform3D(1.74263, 0.367202, 0, -0.367202, 1.74263, 0, 0, 0, 1.7809, 3.99675, 10.4088, -0.0924513)
+cast_shadow = 0
 mesh = SubResource("ArrayMesh_h8vp5")
 skeleton = NodePath("")
 
 [node name="EmberCandle" type="MeshInstance3D" parent="Meshes"]
 transform = Transform3D(1.36991, 0.329927, 0, -0.288686, 1.56561, 0, 0, 0, 1.4, 4.23703, 11.8481, -0.00937271)
+cast_shadow = 0
 mesh = ExtResource("1_45vjc")
 skeleton = NodePath("../..")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.420587, 0.94821, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.394)
 light_color = Color(0.870588, 0.827451, 0.0431373, 1)
 light_energy = 2.0
 light_size = 0.25
 light_specular = 3.0
 shadow_enabled = true
+omni_range = 9.76608
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.978509, -0.206204, 0, 0.206204, 0.978509, 0.00311399, 0.5663, 0.318675)

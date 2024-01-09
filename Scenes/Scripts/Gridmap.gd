@@ -1,10 +1,10 @@
 extends GridMap
 
-const barrel = preload("res://Scenes/Models/barrel.tscn")
-const crate = preload("res://Scenes/Models/crate.tscn")
-const campfire = preload("res://Scenes/Models/campfire.tscn")
-const flag = preload("res://Scenes/Models/flag.tscn")
-const light_holder = preload("res://Scenes/Models/light_holder.tscn")
+const barrel : PackedScene = preload("res://Scenes/Models/barrel.tscn")
+const crate : PackedScene = preload("res://Scenes/Models/crate.tscn")
+const campfire : PackedScene = preload("res://Scenes/Models/campfire.tscn")
+const flag : PackedScene = preload("res://Scenes/Models/flag.tscn")
+const light_holder : PackedScene = preload("res://Scenes/Models/light_holder.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

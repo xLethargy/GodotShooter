@@ -1,10 +1,9 @@
 extends Node
 
 var max_health : int = 5
-var current_health : int
+var current_health : int = max_health
 
-func _ready():
-	current_health = max_health
+
 
 func hit():
 	current_health -= 1

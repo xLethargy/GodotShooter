@@ -1,6 +1,8 @@
 extends Node3D
 class_name LevelParent
 
+@onready var player : Node3D = %Frog
+
 var laser_scene: PackedScene = preload("res://Scenes/Projectiles/primary.tscn")
 var grenade_scene: PackedScene = preload("res://Scenes/Projectiles/secondary.tscn")
 

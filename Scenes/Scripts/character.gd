@@ -10,7 +10,8 @@ var shoot_spit: bool = false
 
 var shooter_marker
 
-var character_speed: float = 5.0
+var max_speed : float = 5.0
+var current_speed: float = max_speed
 #var rotation_speed: float = 12.0
 
 @onready var level_node : Node = get_tree().current_scene
@@ -40,7 +41,7 @@ func _character_movement(_delta):
 		
 		#self.rotation.y = lerp_angle(self.rotation.y, atan2( direction.x , direction.z), delta * rotation_speed)
 	
-	velocity = direction * character_speed
+	velocity = direction * current_speed
 	
 	look_at(level_node.screen_point_to_ray("player"), Vector3.UP)
 	global_rotation.x = 0
