@@ -222,7 +222,7 @@ shadow_mesh = SubResource("ArrayMesh_tww1n")
 size = Vector3(0.972412, 1.79555, 0.882813)
 
 [node name="EVILmilk" type="CharacterBody3D"]
-collision_layer = 16
+collision_layer = 32
 collision_mask = 11
 script = ExtResource("1_d0oby")
 

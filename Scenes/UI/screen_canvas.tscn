@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://boixoq1ha3kyu"]
+
+[ext_resource type="Theme" uid="uid://darmws5j17nfh" path="res://Scenes/UI/text_main_theme.tres" id="1_7ux35"]
+[ext_resource type="Texture2D" uid="uid://cogtpl8xav1ce" path="res://Images and Fonts/bullet.png" id="2_osn6q"]
+[ext_resource type="Texture2D" uid="uid://cpmmh8kceps5" path="res://Images and Fonts/grenade.png" id="3_ayni2"]
+[ext_resource type="Texture2D" uid="uid://br6rgt87jwnwy" path="res://Images and Fonts/backgroundhealth.jpg" id="4_n5cwp"]
+[ext_resource type="Texture2D" uid="uid://dwrermnvijo2w" path="res://Images and Fonts/greenhealth.jpg" id="5_mhvlr"]
+
+[node name="ScreenCanvas" type="CanvasLayer"]
+
+[node name="AmmoCounter" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 1.0
+anchor_top = 0.9
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AmmoCounter"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -74.0
+offset_top = -59.0
+
+[node name="PrimaryCounter" type="VBoxContainer" parent="AmmoCounter/HBoxContainer"]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="AmmoCounter/HBoxContainer/PrimaryCounter"]
+layout_mode = 2
+theme = ExtResource("1_7ux35")
+text = "16"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="AmmoCounter/HBoxContainer/PrimaryCounter"]
+layout_mode = 2
+texture = ExtResource("2_osn6q")
+expand_mode = 4
+
+[node name="SecondaryCounter" type="VBoxContainer" parent="AmmoCounter/HBoxContainer"]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="AmmoCounter/HBoxContainer/SecondaryCounter"]
+layout_mode = 2
+theme = ExtResource("1_7ux35")
+text = "3
+"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="AmmoCounter/HBoxContainer/SecondaryCounter"]
+layout_mode = 2
+texture = ExtResource("3_ayni2")
+expand_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(175, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -87.5
+offset_top = -8.0
+offset_right = 87.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = -100
+theme_override_constants/margin_top = -5
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 3
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+value = 80.0
+texture_under = ExtResource("4_n5cwp")
+texture_progress = ExtResource("5_mhvlr")

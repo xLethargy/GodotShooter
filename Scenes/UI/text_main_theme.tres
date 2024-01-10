@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://darmws5j17nfh"]
+
+[ext_resource type="FontFile" uid="uid://bx6intr2jlhdo" path="res://Images and Fonts/ChicagoFLF.ttf" id="1_g2bc7"]
+
+[resource]
+default_font = ExtResource("1_g2bc7")

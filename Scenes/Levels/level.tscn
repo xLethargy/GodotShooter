@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8j8747j84cyk"]
+[gd_scene load_steps=6 format=3 uid="uid://b8j8747j84cyk"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/level.gd" id="1_bjxt8"]
+[ext_resource type="PackedScene" uid="uid://boixoq1ha3kyu" path="res://Scenes/UI/screen_canvas.tscn" id="4_2qlot"]
 [ext_resource type="PackedScene" uid="uid://dvlk6i0rwdqsv" path="res://Scenes/Models/frog.tscn" id="5_b6li5"]
 [ext_resource type="Script" path="res://Scenes/Scripts/MainCamera.gd" id="6_vkk44"]
 
@@ -15,7 +16,7 @@ metadata/_edit_group_ = true
 
 [node name="MainCamera" type="Camera3D" parent="Player"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, 0, 5.75, 5.5)
+transform = Transform3D(1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, 0, 4.75, 5.5)
 fov = 90.0
 script = ExtResource("6_vkk44")
 
@@ -43,6 +44,8 @@ shadow_opacity = 0.5
 
 [node name="Projectiles" type="Node3D" parent="."]
 metadata/_edit_lock_ = true
+
+[node name="ScreenCanvas" parent="." instance=ExtResource("4_2qlot")]
 
 [connection signal="primary_fire" from="Player/Frog" to="." method="_on_frog_primary_fire"]
 [connection signal="secondary_fire" from="Player/Frog" to="." method="_on_frog_secondary_fire"]

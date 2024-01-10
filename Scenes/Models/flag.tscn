@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://dp58q103ssn0d"]
 
-[ext_resource type="Texture2D" uid="uid://dj823rw2j41j3" path="res://Scenes/Models/ALIENpole_alien cat.png" id="1_pntdj"]
+[ext_resource type="Texture2D" uid="uid://dj823rw2j41j3" path="res://Images and Fonts/ALIENpole_alien cat.png" id="1_pntdj"]
 [ext_resource type="Material" uid="uid://b8ffqh3jpjgod" path="res://Materials/Brown.tres" id="2_4gjsm"]
 [ext_resource type="Shader" path="res://Scenes/Shaders/flag.gdshader" id="4_8slh8"]
 

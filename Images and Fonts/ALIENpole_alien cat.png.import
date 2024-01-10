@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dj823rw2j41j3"
-path.s3tc="res://.godot/imported/ALIENpole_alien cat.png-a2e47f509ec10f8f1b6d1174f7f44fb8.s3tc.ctex"
+path.s3tc="res://.godot/imported/ALIENpole_alien cat.png-6553e2618bad5d28146e94962482676a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://Scenes/Models/ALIENpole_alien cat.png"
-dest_files=["res://.godot/imported/ALIENpole_alien cat.png-a2e47f509ec10f8f1b6d1174f7f44fb8.s3tc.ctex"]
+source_file="res://Images and Fonts/ALIENpole_alien cat.png"
+dest_files=["res://.godot/imported/ALIENpole_alien cat.png-6553e2618bad5d28146e94962482676a.s3tc.ctex"]
 
 [params]
 
