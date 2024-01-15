@@ -49,11 +49,15 @@ func _character_movement(_delta):
 	global_position.y = 0.551
 
 func _shoot_commands():
-	if Input.is_action_pressed("primary") and can_primary:
+	if Input.is_action_pressed("primary") and can_primary and Global.laser_amount > 0:
+		Global.laser_amount -= 1
+		
 		can_primary = false
 		_shoot_weapon_from_mouth(primary_fire, $PrimaryTimer)
 	
-	if Input.is_action_just_pressed("secondary") and can_secondary:
+	if Input.is_action_just_pressed("secondary") and can_secondary and Global.grenade_amount > 0:
+		Global.grenade_amount -= 1
+		
 		can_secondary = false
 		_shoot_weapon_from_mouth(secondary_fire, $SecondaryTimer)
 	

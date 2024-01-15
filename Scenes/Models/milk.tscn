@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://dnm35jm6kt4o0"]
 
-[ext_resource type="Script" path="res://Scenes/Scripts/enemy.gd" id="1_d0oby"]
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_d0oby"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cgudb"]
 resource_name = "BLUE"

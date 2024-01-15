@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://dvlk6i0rwdqsv"]
 
-[ext_resource type="Script" path="res://Scenes/Scripts/character.gd" id="1_umu8j"]
+[ext_resource type="Script" path="res://Scripts/character.gd" id="1_46ng5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dve63"]
 resource_name = "Material.003"
@@ -175,7 +175,7 @@ material = SubResource("StandardMaterial3D_yxr6v")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.551387, 0)
 collision_layer = 4
 collision_mask = 35
-script = ExtResource("1_umu8j")
+script = ExtResource("1_46ng5")
 
 [node name="FrogMeshes" type="Node3D" parent="."]
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0, 0.0252381, -0.32964)

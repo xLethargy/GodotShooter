@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://d26ru0c6wf71j"]
 
-[ext_resource type="Script" path="res://Scenes/Scripts/primary.gd" id="1_428h5"]
+[ext_resource type="Script" path="res://Scripts/primary.gd" id="1_j1gqw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dvdu3"]
 size = Vector3(0.05, 0.05, 0.258446)
@@ -27,7 +27,7 @@ collision_priority = 5.0
 gravity_scale = 0.0
 lock_rotation = true
 continuous_cd = true
-script = ExtResource("1_428h5")
+script = ExtResource("1_j1gqw")
 speed = 50.0
 
 [node name="CollisionDetector" type="Area3D" parent="."]

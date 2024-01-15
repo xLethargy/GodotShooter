@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c0w0aje611s2x"]
 
-[ext_resource type="Script" path="res://Scenes/Scripts/character.gd" id="1_7cuwn"]
-[ext_resource type="ArrayMesh" uid="uid://40byh30wpr25" path="res://Scenes/Models/george_Cube_003.res" id="1_b218b"]
+[ext_resource type="Script" path="res://Scripts/character.gd" id="1_7cuwn"]
+[ext_resource type="ArrayMesh" path="res://Scenes/Models/george_Cube_003.res" id="1_b218b"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0scgf"]
 size = Vector3(0.397354, 2.00868, 0.109604)

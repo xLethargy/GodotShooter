@@ -4,7 +4,7 @@
 [ext_resource type="MeshLibrary" uid="uid://dyxy7mdltb7q7" path="res://Scenes/MeshLibraryAssets/ObjectMeshLibrary.tres" id="3_5vxef"]
 [ext_resource type="PackedScene" uid="uid://rs3qu0tl4e3p" path="res://Scenes/Models/arch.tscn" id="3_iy51j"]
 [ext_resource type="MeshLibrary" uid="uid://bab22s42s4tas" path="res://Scenes/MeshLibraryAssets/ObjectMeshLibrary2.tres" id="3_n7sow"]
-[ext_resource type="Script" path="res://Scenes/Scripts/Gridmap.gd" id="7_o5eeg"]
+[ext_resource type="Script" path="res://Scripts/Gridmap.gd" id="7_o5eeg"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_rm0pf"]
 size = Vector3(100, 0.5, 100)

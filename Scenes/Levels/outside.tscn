@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://b8j8747j84cyk" path="res://Scenes/Levels/level.tscn" id="1_r1cm1"]
 [ext_resource type="MeshLibrary" uid="uid://bab22s42s4tas" path="res://Scenes/MeshLibraryAssets/ObjectMeshLibrary2.tres" id="2_et0e2"]
-[ext_resource type="Script" path="res://Scenes/Scripts/outside.gd" id="2_ppclg"]
+[ext_resource type="Script" path="res://Scripts/outside.gd" id="2_ppclg"]
 [ext_resource type="Material" uid="uid://c1kvm3udgo3ru" path="res://Materials/green.tres" id="3_i0tu2"]
 [ext_resource type="MeshLibrary" uid="uid://dyxy7mdltb7q7" path="res://Scenes/MeshLibraryAssets/ObjectMeshLibrary.tres" id="3_yaw43"]
-[ext_resource type="Script" path="res://Scenes/Scripts/Gridmap.gd" id="4_y84ex"]
+[ext_resource type="Script" path="res://Scripts/Gridmap.gd" id="4_y84ex"]
 [ext_resource type="PackedScene" uid="uid://dnm35jm6kt4o0" path="res://Scenes/Models/milk.tscn" id="6_br2e1"]
 [ext_resource type="PackedScene" uid="uid://b48pm2h738ibb" path="res://Scenes/Models/chair.tscn" id="7_sh00u"]
 
