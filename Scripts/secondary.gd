@@ -7,7 +7,9 @@ signal grenade_velocity
 @onready var level_node = get_tree().current_scene
 
 @onready var material = $MeshInstance3D.get_active_material(0)
+@onready var tick_count : int = 0
 
+var flicker_bool = false
 
 func _ready():
 	var direction_facing: Vector3 = get_global_transform().basis.z
@@ -35,8 +37,14 @@ func _on_orange_explosion_finished():
 	queue_free()
 
 func on_animation_play():
-	
-	if (!$LightFlicker.visible):
+
+	if (!$LightFlicker.visible and flicker_bool == false):
 		material.emission_enabled = false
-	else:
+		flicker_bool = true
+	elif ($LightFlicker.visible and flicker_bool == true):
 		material.emission_enabled = true
+		tick_count += 1
+		flicker_bool = false
+		if tick_count == 3:
+			material.emission = Color("b53321")
+			$LightFlicker.light_color = Color("b53321")
