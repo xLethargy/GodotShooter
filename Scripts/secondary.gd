@@ -6,6 +6,8 @@ signal grenade_velocity
 
 @onready var level_node = get_tree().current_scene
 
+@onready var material = $MeshInstance3D.get_active_material(0)
+
 
 func _ready():
 	var direction_facing: Vector3 = get_global_transform().basis.z
@@ -13,6 +15,10 @@ func _ready():
 	
 	linear_velocity = direction_facing * lob_velocity
 	linear_velocity.y += lob_velocity / 2
+	
+
+func _process(_delta):
+	on_animation_play()
 
 func _on_explosion_timer_timeout():
 	$RedExplosion.emitting = true
@@ -27,3 +33,10 @@ func _on_player_collision_timer_timeout():
 
 func _on_orange_explosion_finished():
 	queue_free()
+
+func on_animation_play():
+	
+	if (!$LightFlicker.visible):
+		material.emission_enabled = false
+	else:
+		material.emission_enabled = true

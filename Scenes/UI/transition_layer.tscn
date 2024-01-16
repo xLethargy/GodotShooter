@@ -23,6 +23,7 @@ _data = {
 }
 
 [node name="TransitionLayer" type="CanvasLayer"]
+layer = 2
 script = ExtResource("1_wkprk")
 
 [node name="ColorRect" type="ColorRect" parent="."]

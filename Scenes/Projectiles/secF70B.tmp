@@ -179,5 +179,4 @@ autostart = true
 
 [connection signal="finished" from="OrangeExplosion" to="." method="_on_orange_explosion_finished"]
 [connection signal="timeout" from="ExplosionTimer" to="." method="_on_explosion_timer_timeout"]
-[connection signal="current_animation_changed" from="LightAnimation" to="." method="_on_light_animation_current_animation_changed"]
 [connection signal="timeout" from="PlayerCollisionTimer" to="." method="_on_player_collision_timer_timeout"]
