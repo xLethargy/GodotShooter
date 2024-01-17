@@ -26,6 +26,12 @@ window/size/viewport_width=512
 window/size/viewport_height=280
 window/size/mode=2
 window/stretch/mode="viewport"
+mouse_cursor/custom_image="res://Images and Fonts/cursor.png"
+mouse_cursor/tooltip_position_offset=Vector2(0, 0)
+
+[filesystem]
+
+import/fbx/enabled=false
 
 [input]
 

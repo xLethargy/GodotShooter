@@ -27,7 +27,7 @@ func screen_point_to_ray(scene_calling : String):
 	var space_state = get_world_3d().direct_space_state
 	
 	var mouse_position = get_viewport().get_mouse_position() #finds mouse location
-	var camera = get_tree().root.get_camera_3d() #grabs camera node
+	var camera =  %MainCamera#grabs camera node
 	
 	var ray_length = 2000 # length of raycast
 	var ray_origin = camera.project_ray_origin(mouse_position) #where the raycast starts
@@ -51,3 +51,7 @@ func screen_point_to_ray(scene_calling : String):
 			lob_velocity = 1
 		
 		return lob_velocity
+
+
+func _on_frog_update_stats():
+	$UI.update_all()

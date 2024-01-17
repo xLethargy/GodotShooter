@@ -49,3 +49,4 @@ metadata/_edit_lock_ = true
 
 [connection signal="primary_fire" from="Player/Frog" to="." method="_on_frog_primary_fire"]
 [connection signal="secondary_fire" from="Player/Frog" to="." method="_on_frog_secondary_fire"]
+[connection signal="update_stats" from="Player/Frog" to="." method="_on_frog_update_stats"]

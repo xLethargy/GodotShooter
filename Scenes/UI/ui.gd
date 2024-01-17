@@ -8,10 +8,15 @@ var red : Color = Color("b53321")
 @onready var secondary_label : Label = $AmmoCounter/HBoxContainer/SecondaryCounter/SecondaryLabel
 @onready var laser_icon : TextureRect = $AmmoCounter/HBoxContainer/PrimaryCounter/PrimaryTextureRect
 @onready var grenade_icon : TextureRect = $AmmoCounter/HBoxContainer/SecondaryCounter/SecondaryTextureRect
+@onready var health_bar : TextureProgressBar = $MarginContainer/TextureProgressBar
 
 func _ready():
+	update_all()
+
+func update_all():
 	update_laser_text()
 	update_grenade_text()
+	update_health_bar()
 
 func update_laser_text():
 	primary_label.text = str(Global.laser_amount)
@@ -20,6 +25,10 @@ func update_laser_text():
 func update_grenade_text():
 	secondary_label.text = str(Global.grenade_amount)
 	update_colour(Global.grenade_amount, grenade_icon, secondary_label)
+
+func update_health_bar():
+	health_bar.value = (Global.health)
+
 
 func update_colour(ammo_amount : int, icon : TextureRect, label : Label) -> void:
 	if (ammo_amount <= 0):

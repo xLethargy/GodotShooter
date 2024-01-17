@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 signal primary_fire(pos, rot)
 signal secondary_fire(pos, rot)
+signal update_stats
 
 var can_primary: bool = true
 var can_secondary: bool = true
@@ -81,3 +82,15 @@ func _on_primary_timer_timeout():
 
 func _on_secondary_timer_timeout():
 	can_secondary = true
+
+
+func add_item(type : String):
+	if type == 'laser':
+		Global.laser_amount += 5
+		update_stats.emit()
+	elif type == 'grenade':
+		Global.grenade_amount += 2
+		update_stats.emit()
+	elif type == 'health':
+		Global.health += 25
+		update_stats.emit()

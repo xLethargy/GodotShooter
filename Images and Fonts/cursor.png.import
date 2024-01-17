@@ -2,27 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwrermnvijo2w"
-path.s3tc="res://.godot/imported/greenhealth.jpg-e9706d38fee14d7acb8ca9d5ad41f32e.s3tc.ctex"
+uid="uid://bqqorueqht35u"
+path="res://.godot/imported/cursor.png-5de5cf6e17a6dc6b4ed2165348a476f0.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images and Fonts/greenhealth.jpg"
-dest_files=["res://.godot/imported/greenhealth.jpg-e9706d38fee14d7acb8ca9d5ad41f32e.s3tc.ctex"]
+source_file="res://Images and Fonts/cursor.png"
+dest_files=["res://.godot/imported/cursor.png-5de5cf6e17a6dc6b4ed2165348a476f0.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -32,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

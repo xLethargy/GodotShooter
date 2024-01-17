@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://k7sxxu5ueftr"]
+[gd_scene load_steps=5 format=3 uid="uid://k7sxxu5ueftr"]
+
+[ext_resource type="Script" path="res://Scenes/Items/item.gd" id="1_dfmh0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_auao2"]
 transparency = 1
@@ -15,6 +17,7 @@ material = SubResource("StandardMaterial3D_auao2")
 [node name="Item" type="Area3D"]
 collision_layer = 16
 collision_mask = 4
+script = ExtResource("1_dfmh0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000569463, -5.96046e-08, -0.00248712)
@@ -26,3 +29,5 @@ shape = SubResource("SphereShape3D_nqyca")
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 light_energy = 3.0
 omni_range = 1.43229
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

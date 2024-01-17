@@ -37,7 +37,6 @@ func _on_orange_explosion_finished():
 	queue_free()
 
 func on_animation_play():
-
 	if (!$LightFlicker.visible and flicker_bool == false):
 		material.emission_enabled = false
 		flicker_bool = true

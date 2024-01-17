@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://boixoq1ha3kyu"]
+[gd_scene load_steps=9 format=3 uid="uid://boixoq1ha3kyu"]
 
 [ext_resource type="Theme" uid="uid://darmws5j17nfh" path="res://Scenes/UI/text_main_theme.tres" id="1_7ux35"]
 [ext_resource type="Script" path="res://Scenes/UI/ui.gd" id="1_fagxc"]
@@ -6,6 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://cpmmh8kceps5" path="res://Images and Fonts/grenade.png" id="3_ayni2"]
 [ext_resource type="Texture2D" uid="uid://br6rgt87jwnwy" path="res://Images and Fonts/backgroundhealth.jpg" id="4_n5cwp"]
 [ext_resource type="Texture2D" uid="uid://dwrermnvijo2w" path="res://Images and Fonts/greenhealth.jpg" id="5_mhvlr"]
+[ext_resource type="Shader" path="res://Scenes/Shaders/VHS.gdshader" id="7_y7a4f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qd0eo"]
+shader = ExtResource("7_y7a4f")
+shader_parameter/tape_wave_amount = 0.003
+shader_parameter/tape_crease_amount = 2.5
+shader_parameter/color_displacement = 1.0
+shader_parameter/lines_velocity = 0.1
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_fagxc")
@@ -90,3 +98,12 @@ size_flags_vertical = 8
 value = 80.0
 texture_under = ExtResource("4_n5cwp")
 texture_progress = ExtResource("5_mhvlr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_qd0eo")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
