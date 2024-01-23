@@ -2,27 +2,24 @@ extends CharacterBody3D
 
 signal primary_fire(pos, rot)
 signal secondary_fire(pos, rot)
-signal update_stats
 
 var can_primary: bool = true
 var can_secondary: bool = true
 
 var shoot_spit: bool = false
 
-var shooter_marker
-
 var max_speed : float = 5.0
 var current_speed: float = max_speed
 #var rotation_speed: float = 12.0
 
+@onready var shooter_marker = $FrogPointer
 @onready var level_node : Node = get_tree().current_scene
 
-func _ready():
-	shooter_marker = $FrogPointer
 
 func _process(delta):
 	_character_movement(delta)
 	_shoot_commands()
+
 
 func _character_movement(_delta):
 	var direction: Vector3 = Vector3.ZERO
@@ -49,6 +46,7 @@ func _character_movement(_delta):
 	move_and_slide()
 	global_position.y = 0.551
 
+
 func _shoot_commands():
 	if Input.is_action_pressed("primary") and can_primary and Global.laser_amount > 0:
 		Global.laser_amount -= 1
@@ -65,6 +63,7 @@ func _shoot_commands():
 	if Input.is_action_just_released("primary") or Input.is_action_just_released("secondary"):
 		shoot_spit = false
 
+
 func _shoot_weapon_from_mouth(weapon_signal, weapon_timer):
 	var weapon_position = shooter_marker.global_position
 	var weapon_rotation = shooter_marker.global_rotation
@@ -76,21 +75,10 @@ func _shoot_weapon_from_mouth(weapon_signal, weapon_timer):
 			$SpitParticles.emitting = true
 			shoot_spit = true
 
+
 func _on_primary_timer_timeout():
 	can_primary = true
 
 
 func _on_secondary_timer_timeout():
 	can_secondary = true
-
-
-func add_item(type : String):
-	if type == 'laser':
-		Global.laser_amount += 5
-		update_stats.emit()
-	elif type == 'grenade':
-		Global.grenade_amount += 2
-		update_stats.emit()
-	elif type == 'health':
-		Global.health += 25
-		update_stats.emit()

@@ -1,7 +1,7 @@
 extends Area3D
 
 var available_options = ['laser', 'grenade', 'health']
-var type = available_options[randi()%len(available_options)]
+var type : String = available_options[randi()%len(available_options)]
 @onready var material = $MeshInstance3D.get_active_material(0)
 
 func _ready():
@@ -16,9 +16,17 @@ func _ready():
 		material.emission = Color(0, 1, 0)
 
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	if type == 'health' and Global.health == 100:
 		return
 	
-	body.add_item(type)
+	add_item()
 	queue_free()
+
+func add_item():
+	if type == 'laser':
+		Global.laser_amount += 5
+	elif type == 'grenade':
+		Global.grenade_amount += 2
+	elif type == 'health':
+		Global.health += 25
