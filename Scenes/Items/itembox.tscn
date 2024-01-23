@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://chvakx7layvax"]
+
+[ext_resource type="Script" path="res://Scenes/Items/itemcontainer.gd" id="1_nu4lj"]
+
+[node name="ItemBox" type="StaticBody3D" groups=["Container"]]
+collision_layer = 2
+collision_mask = 44
+script = ExtResource("1_nu4lj")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+
+[node name="MeshCollision" type="CollisionShape3D" parent="."]
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="."]
+size = Vector3(1, 1, 1)
+
+[node name="Lid" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0117546, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Lid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.455114, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.51, 0)
+modulate = Color(0, 0, 0, 0.941176)
+pixel_size = 0.0017
+
+[node name="Spawners" type="Node3D" parent="."]
+
+[node name="ItemSpawn" type="Marker3D" parent="Spawners"]
+
+[node name="ItemSpawn2" type="Marker3D" parent="Spawners"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0)
+
+[node name="ItemSpawn3" type="Marker3D" parent="Spawners"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)

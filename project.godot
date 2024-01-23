@@ -22,10 +22,11 @@ TransitionLayer="*res://Scenes/UI/transition_layer.tscn"
 
 [display]
 
-window/size/viewport_width=512
-window/size/viewport_height=280
+window/size/viewport_width=860
+window/size/viewport_height=520
 window/size/mode=2
 window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 mouse_cursor/custom_image="res://Images and Fonts/cursor.png"
 mouse_cursor/tooltip_position_offset=Vector2(0, 0)
 

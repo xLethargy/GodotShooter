@@ -2,17 +2,17 @@ extends RigidBody3D
 
 signal grenade_velocity
 
+var tick_count : int = 0
+
 @export var vertical_lob_power: float = 4.0
 
 @onready var level_node = get_tree().current_scene
-
 @onready var material = $MeshInstance3D.get_active_material(0)
-@onready var tick_count : int = 0
+@onready var direction_facing: Vector3 = get_global_transform().basis.z
 
 var flicker_bool = false
 
 func _ready():
-	var direction_facing: Vector3 = get_global_transform().basis.z
 	var lob_velocity: float = level_node.screen_point_to_ray("grenade")
 	
 	linear_velocity = direction_facing * lob_velocity

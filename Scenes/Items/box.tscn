@@ -1,0 +1,36 @@
+[gd_scene load_steps=9 format=3 uid="uid://cwfsvrsqm6uvc"]
+
+[ext_resource type="PackedScene" uid="uid://chvakx7layvax" path="res://Scenes/Items/itembox.tscn" id="1_l7aqu"]
+[ext_resource type="Script" path="res://Scenes/Items/item_box.gd" id="2_h2vv2"]
+[ext_resource type="Material" uid="uid://7ocugpl6jt1e" path="res://Materials/box.tres" id="2_hgxjr"]
+[ext_resource type="Texture2D" uid="uid://dstqspuq4y7vr" path="res://Images and Fonts/blackcircle.png" id="3_4fyd1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ltgs0"]
+material = ExtResource("2_hgxjr")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ct05l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o62bu"]
+albedo_color = Color(0.329412, 0.180392, 0.0784314, 1)
+emission_enabled = true
+emission = Color(0.196078, 0.0980392, 0.0313726, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_j1ajl"]
+material = SubResource("StandardMaterial3D_o62bu")
+size = Vector3(1.1, 0.1, 1.1)
+
+[node name="Box" instance=ExtResource("1_l7aqu")]
+script = ExtResource("2_h2vv2")
+
+[node name="Mesh" parent="." index="0"]
+mesh = SubResource("BoxMesh_ltgs0")
+
+[node name="MeshCollision" parent="." index="1"]
+shape = SubResource("BoxShape3D_ct05l")
+
+[node name="MeshInstance3D" parent="Lid" index="0"]
+mesh = SubResource("BoxMesh_j1ajl")
+
+[node name="Sprite3D" parent="." index="4"]
+texture = ExtResource("3_4fyd1")

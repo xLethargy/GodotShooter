@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://k8vgpgtlxfv2"]
+[gd_scene load_steps=15 format=3 uid="uid://k8vgpgtlxfv2"]
 
 [ext_resource type="PackedScene" uid="uid://b8j8747j84cyk" path="res://Scenes/Levels/level.tscn" id="1_r1cm1"]
 [ext_resource type="MeshLibrary" uid="uid://bab22s42s4tas" path="res://Scenes/MeshLibraryAssets/ObjectMeshLibrary2.tres" id="2_et0e2"]
@@ -7,6 +7,7 @@
 [ext_resource type="MeshLibrary" uid="uid://dyxy7mdltb7q7" path="res://Scenes/MeshLibraryAssets/ObjectMeshLibrary.tres" id="3_yaw43"]
 [ext_resource type="Script" path="res://Scripts/Gridmap.gd" id="4_y84ex"]
 [ext_resource type="PackedScene" uid="uid://dnm35jm6kt4o0" path="res://Scenes/Models/milk.tscn" id="6_br2e1"]
+[ext_resource type="PackedScene" uid="uid://cwfsvrsqm6uvc" path="res://Scenes/Items/box.tscn" id="9_8tf0g"]
 [ext_resource type="PackedScene" uid="uid://k7sxxu5ueftr" path="res://Scenes/Items/item.tscn" id="9_jrudb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p2r5l"]
@@ -121,5 +122,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00567681, 0)
 
 [node name="Item" parent="." index="6" instance=ExtResource("9_jrudb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25822, 0.83175, 0.442256)
+
+[node name="Box" parent="." index="7" instance=ExtResource("9_8tf0g")]
+transform = Transform3D(0.578299, 0, -0.815825, 0, 1, 0, 0.815825, 0, 0.578299, -3.44655, 0.5, -1.06838)
+collision_layer = 18
+collision_mask = 0
+
+[node name="Box2" parent="." index="8" instance=ExtResource("9_8tf0g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.40379, 0.5, 0.819265)
+collision_layer = 18
+collision_mask = 0
 
 [connection signal="body_entered" from="Ground/Arch/ArchArea" to="." method="_on_arch_area_body_entered"]

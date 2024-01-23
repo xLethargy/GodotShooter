@@ -2,8 +2,10 @@ extends RigidBody3D
 
 @export var speed: float = 40
 
+@onready var direction_facing: Vector3 = get_global_transform().basis.z
+
 func _process(_delta):
-	var direction_facing: Vector3 = get_global_transform().basis.z
+	
 	#position += direction_facing * speed * delta #THIS WAS BEFORE PRIMARY WAS RIGIDBODY
 	
 	linear_velocity = direction_facing * speed

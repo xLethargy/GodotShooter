@@ -5,6 +5,21 @@ class_name LevelParent
 
 var laser_scene: PackedScene = preload("res://Scenes/Projectiles/primary.tscn")
 var grenade_scene: PackedScene = preload("res://Scenes/Projectiles/secondary.tscn")
+var item_scene : PackedScene = preload("res://Scenes/Items/item.tscn")
+
+
+func _ready():
+	for item_container in get_tree().get_nodes_in_group("Container"):
+		item_container.connect("open", _on_container_opened)
+
+
+func _on_container_opened(pos, dir):
+	var item = item_scene.instantiate()
+	item.position = pos
+	item.direction = dir
+	
+	$Items.add_child(item)
+
 
 func _on_frog_primary_fire(laser_position, laser_rotation):
 	var laser = laser_scene.instantiate()
@@ -55,3 +70,5 @@ func screen_point_to_ray(scene_calling : String):
 
 func _on_frog_update_stats():
 	$UI.update_all()
+
+

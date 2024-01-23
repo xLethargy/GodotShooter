@@ -11,9 +11,7 @@ var red : Color = Color("b53321")
 @onready var health_bar : TextureProgressBar = $MarginContainer/TextureProgressBar
 
 func _ready():
-	Global.connect("health_change", update_health_bar)
-	Global.connect("laser_amount_change", update_laser_text)
-	Global.connect("grenade_amount_change", update_grenade_text)
+	Global.connect("stat_change", update_all)
 	
 	update_all()
 
