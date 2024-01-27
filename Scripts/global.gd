@@ -16,3 +16,5 @@ var health = 70:
 	set(value):
 		health = value
 		stat_change.emit()
+		
+var player_position : Vector3

@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://k8vgpgtlxfv2"]
+[gd_scene load_steps=15 format=3 uid="uid://k8vgpgtlxfv2"]
 
 [ext_resource type="PackedScene" uid="uid://b8j8747j84cyk" path="res://Scenes/Levels/level.tscn" id="1_r1cm1"]
 [ext_resource type="MeshLibrary" uid="uid://bab22s42s4tas" path="res://Scenes/MeshLibraryAssets/ObjectMeshLibrary2.tres" id="2_et0e2"]
 [ext_resource type="Script" path="res://Scripts/outside.gd" id="2_ppclg"]
 [ext_resource type="Material" uid="uid://c1kvm3udgo3ru" path="res://Materials/green.tres" id="3_i0tu2"]
 [ext_resource type="MeshLibrary" uid="uid://dyxy7mdltb7q7" path="res://Scenes/MeshLibraryAssets/ObjectMeshLibrary.tres" id="3_yaw43"]
+[ext_resource type="PackedScene" uid="uid://b3am8q1f3k014" path="res://Scenes/Models/sheriff.tscn" id="4_7muf0"]
 [ext_resource type="Script" path="res://Scripts/Gridmap.gd" id="4_y84ex"]
 [ext_resource type="PackedScene" uid="uid://dnm35jm6kt4o0" path="res://Scenes/Models/milk.tscn" id="6_br2e1"]
 [ext_resource type="PackedScene" uid="uid://cwfsvrsqm6uvc" path="res://Scenes/Items/box.tscn" id="9_8tf0g"]
@@ -62,6 +63,12 @@ script = ExtResource("2_ppclg")
 [node name="Player" parent="." index="0"]
 metadata/_edit_lock_ = true
 
+[node name="EVILmilk" parent="Enemies" index="0" instance=ExtResource("6_br2e1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00567681, 0)
+
+[node name="sheriff" parent="Enemies" index="1" instance=ExtResource("4_7muf0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.26624, 0.778311, -2.80472)
+
 [node name="WallGridMap" type="GridMap" parent="Ground" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0324727, 0)
 mesh_library = ExtResource("2_et0e2")
@@ -115,9 +122,6 @@ shape = SubResource("BoxShape3D_2ybt4")
 [node name="GroundMesh" type="MeshInstance3D" parent="Ground" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 mesh = SubResource("BoxMesh_v8rbs")
-
-[node name="EVILmilk" parent="." index="4" instance=ExtResource("6_br2e1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00567681, 0)
 
 [node name="Box" parent="Objects" index="0" instance=ExtResource("9_8tf0g")]
 transform = Transform3D(0.578299, 0, -0.815825, 0, 1, 0, 0.815825, 0, 0.578299, -3.44655, 0.5, -1.06838)

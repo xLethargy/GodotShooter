@@ -11,6 +11,8 @@ var item_scene : PackedScene = preload("res://Scenes/Items/item.tscn")
 func _ready():
 	for item_container in get_tree().get_nodes_in_group("Container"):
 		item_container.connect("open", _on_container_opened)
+	for sheriff in get_tree().get_nodes_in_group("Sheriff"):
+		sheriff.connect("laser", _on_sheriff_shoot)
 
 
 func _on_container_opened(pos, dir):
@@ -22,10 +24,7 @@ func _on_container_opened(pos, dir):
 
 
 func _on_frog_primary_fire(laser_position, laser_rotation):
-	var laser = laser_scene.instantiate()
-	laser.position = laser_position
-	laser.rotation = laser_rotation
-	$Projectiles.add_child(laser)
+	create_laser(laser_position, laser_rotation)
 
 
 
@@ -35,6 +34,16 @@ func _on_frog_secondary_fire(grenade_position, grenade_rotation):
 	grenade.rotation = grenade_rotation
 	$Projectiles.add_child(grenade)
 
+
+func _on_sheriff_shoot(laser_position, laser_rotation):
+	create_laser(laser_position, laser_rotation)
+
+
+func create_laser(laser_position, laser_rotation):
+	var laser = laser_scene.instantiate()
+	laser.position = laser_position
+	laser.rotation = laser_rotation
+	$Projectiles.add_child(laser)
 
 func screen_point_to_ray(scene_calling : String):
 	var space_state = get_world_3d().direct_space_state

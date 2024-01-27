@@ -22,6 +22,8 @@ func _process(delta):
 
 
 func _character_movement(_delta):
+	Global.player_position = position
+	
 	var direction: Vector3 = Vector3.ZERO
 	
 	if Input.is_action_pressed("left"):
