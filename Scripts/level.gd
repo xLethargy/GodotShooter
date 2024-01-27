@@ -26,8 +26,7 @@ func _on_frog_primary_fire(laser_position, laser_rotation):
 	laser.position = laser_position
 	laser.rotation = laser_rotation
 	$Projectiles.add_child(laser)
-	
-	$UI.update_laser_text()
+
 
 
 func _on_frog_secondary_fire(grenade_position, grenade_rotation):
@@ -35,8 +34,7 @@ func _on_frog_secondary_fire(grenade_position, grenade_rotation):
 	grenade.position = grenade_position
 	grenade.rotation = grenade_rotation
 	$Projectiles.add_child(grenade)
-	
-	$UI.update_grenade_text()
+
 
 func screen_point_to_ray(scene_calling : String):
 	var space_state = get_world_3d().direct_space_state
@@ -66,9 +64,4 @@ func screen_point_to_ray(scene_calling : String):
 			lob_velocity = 1
 		
 		return lob_velocity
-
-
-func _on_frog_update_stats():
-	$UI.update_all()
-
 
