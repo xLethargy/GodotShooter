@@ -148,7 +148,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_j1aya")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wgy6g"]
-size = Vector3(1.05103, 2.15039, 2.56555)
+size = Vector3(1.05103, 2.15039, 3.09186)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l6ob1"]
 direction = Vector3(0, 0, -1)
@@ -166,7 +166,7 @@ albedo_color = Color(0, 0.964706, 0.901961, 0.258824)
 [sub_resource type="SphereMesh" id="SphereMesh_sip7p"]
 material = SubResource("StandardMaterial3D_yxr6v")
 
-[node name="Frog" type="CharacterBody3D" groups=["Player"]]
+[node name="Frog" type="CharacterBody3D" groups=["Entity", "Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.551387, 0)
 collision_layer = 4
 collision_mask = 35
@@ -191,15 +191,8 @@ mesh = SubResource("ArrayMesh_08l5t")
 skeleton = NodePath("")
 
 [node name="FrogCollision" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.0252381, -0.32964)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.0252381, -0.198063)
 shape = SubResource("BoxShape3D_wgy6g")
-
-[node name="PrimaryTimer" type="Timer" parent="."]
-wait_time = 0.25
-one_shot = true
-
-[node name="SecondaryTimer" type="Timer" parent="."]
-one_shot = true
 
 [node name="FrogPointer" type="Marker3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.00343299, 0.388153, -0.914934)
@@ -214,8 +207,24 @@ process_material = SubResource("ParticleProcessMaterial_l6ob1")
 draw_pass_1 = SubResource("SphereMesh_sip7p")
 
 [node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0239258, -0.328735)
-size = Vector3(0.522461, 1.06836, 1.27905)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0239258, -0.197326)
+size = Vector3(0.522461, 1.06836, 1.54187)
 
-[connection signal="timeout" from="PrimaryTimer" to="." method="_on_primary_timer_timeout"]
-[connection signal="timeout" from="SecondaryTimer" to="." method="_on_secondary_timer_timeout"]
+[node name="Timers" type="Node" parent="."]
+
+[node name="PrimaryTimer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+wait_time = 0.25
+one_shot = true
+
+[node name="SecondaryTimer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="InvulnerableTimer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
+wait_time = 0.1
+
+[connection signal="timeout" from="Timers/PrimaryTimer" to="." method="_on_primary_timer_timeout"]
+[connection signal="timeout" from="Timers/SecondaryTimer" to="." method="_on_secondary_timer_timeout"]
+[connection signal="timeout" from="Timers/InvulnerableTimer" to="." method="_on_invulnerable_timer_timeout"]

@@ -156,11 +156,6 @@ randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_tjuuj")
 draw_pass_1 = SubResource("SphereMesh_dstcd")
 
-[node name="ExplosionTimer" type="Timer" parent="."]
-wait_time = 5.0
-one_shot = true
-autostart = true
-
 [node name="LightFlicker" type="OmniLight3D" parent="."]
 visible = false
 light_color = Color(0.0784314, 0.67451, 0.662745, 1)
@@ -171,6 +166,11 @@ libraries = {
 "": SubResource("AnimationLibrary_dfenc")
 }
 autoplay = "light_flicker"
+
+[node name="ExplosionTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
 
 [node name="PlayerCollisionTimer" type="Timer" parent="."]
 wait_time = 0.25

@@ -15,6 +15,7 @@ var current_speed: float = max_speed
 @onready var shooter_marker = $FrogPointer
 @onready var level_node : Node = get_tree().current_scene
 
+var player_vulnerable : bool = true
 
 func _process(delta):
 	_character_movement(delta)
@@ -54,13 +55,13 @@ func _shoot_commands():
 		Global.laser_amount -= 1
 		
 		can_primary = false
-		_shoot_weapon_from_mouth(primary_fire, $PrimaryTimer)
+		_shoot_weapon_from_mouth(primary_fire, %PrimaryTimer)
 	
 	if Input.is_action_just_pressed("secondary") and can_secondary and Global.grenade_amount > 0:
 		Global.grenade_amount -= 1
 		
 		can_secondary = false
-		_shoot_weapon_from_mouth(secondary_fire, $SecondaryTimer)
+		_shoot_weapon_from_mouth(secondary_fire, %SecondaryTimer)
 	
 	if Input.is_action_just_released("primary") or Input.is_action_just_released("secondary"):
 		shoot_spit = false
@@ -84,3 +85,15 @@ func _on_primary_timer_timeout():
 
 func _on_secondary_timer_timeout():
 	can_secondary = true
+
+
+func hit(damage):
+	print ("player hit for " + str(damage))
+	if player_vulnerable:
+			player_vulnerable = false
+			Global.health -= damage
+			%InvulnerableTimer.start()
+
+
+func _on_invulnerable_timer_timeout():
+	player_vulnerable = true

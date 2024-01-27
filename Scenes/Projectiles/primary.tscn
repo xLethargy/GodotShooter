@@ -11,7 +11,7 @@ metallic_specular = 1.0
 roughness = 0.5
 emission_enabled = true
 emission = Color(0, 0.588235, 0.686275, 1)
-emission_energy_multiplier = 15.0
+emission_energy_multiplier = 30.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_26hoq"]
 material = SubResource("StandardMaterial3D_1ngd3")

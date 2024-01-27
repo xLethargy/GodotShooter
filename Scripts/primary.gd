@@ -16,7 +16,7 @@ func _on_destroy_timer_timeout():
 
 func _on_collision_detector_body_entered(body):
 	if "hit" in body:
-		body.hit()
+		body.hit(1)
 		queue_free()
 	
 	queue_free()

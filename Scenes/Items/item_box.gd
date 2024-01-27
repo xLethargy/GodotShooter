@@ -1,6 +1,6 @@
 extends ItemContainer
 
-func hit():
+func hit(_damage):
 	if !opened:
 		opened = !opened
 		$Lid.hide()

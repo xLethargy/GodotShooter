@@ -12,9 +12,11 @@ var grenade_amount = 3:
 		grenade_amount = value
 		stat_change.emit()
 
-var health = 70:
+var player_vulnerable : bool = true
+
+var health = 10:
 	set(value):
-		health = value
+		health = min(value, 10)
 		stat_change.emit()
-		
+
 var player_position : Vector3

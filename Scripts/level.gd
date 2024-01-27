@@ -3,8 +3,9 @@ class_name LevelParent
 
 @onready var player : Node3D = %Frog
 
-var laser_scene: PackedScene = preload("res://Scenes/Projectiles/primary.tscn")
-var grenade_scene: PackedScene = preload("res://Scenes/Projectiles/secondary.tscn")
+var laser_scene : PackedScene = preload("res://Scenes/Projectiles/primary.tscn")
+var enemy_laser_scene : PackedScene = preload("res://Scenes/Projectiles/enemy_primary.tscn")
+var grenade_scene : PackedScene = preload("res://Scenes/Projectiles/secondary.tscn")
 var item_scene : PackedScene = preload("res://Scenes/Items/item.tscn")
 
 
@@ -13,6 +14,7 @@ func _ready():
 		item_container.connect("open", _on_container_opened)
 	for sheriff in get_tree().get_nodes_in_group("Sheriff"):
 		sheriff.connect("laser", _on_sheriff_shoot)
+	
 
 
 func _on_container_opened(pos, dir):
@@ -24,7 +26,7 @@ func _on_container_opened(pos, dir):
 
 
 func _on_frog_primary_fire(laser_position, laser_rotation):
-	create_laser(laser_position, laser_rotation)
+	create_laser(laser_position, laser_rotation, laser_scene)
 
 
 
@@ -35,12 +37,16 @@ func _on_frog_secondary_fire(grenade_position, grenade_rotation):
 	$Projectiles.add_child(grenade)
 
 
+func _on_grenade_explosion():
+	print ("explosion")
+
+
 func _on_sheriff_shoot(laser_position, laser_rotation):
-	create_laser(laser_position, laser_rotation)
+	create_laser(laser_position, laser_rotation, enemy_laser_scene)
 
 
-func create_laser(laser_position, laser_rotation):
-	var laser = laser_scene.instantiate()
+func create_laser(laser_position, laser_rotation, given_laser_scene):
+	var laser = given_laser_scene.instantiate()
 	laser.position = laser_position
 	laser.rotation = laser_rotation
 	$Projectiles.add_child(laser)

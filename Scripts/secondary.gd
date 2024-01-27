@@ -12,7 +12,13 @@ var tick_count : int = 0
 
 var flicker_bool = false
 
+var explosion_radius : int = 7
+
+signal explosion
+
 func _ready():
+	
+	
 	var lob_velocity: float = level_node.screen_point_to_ray("grenade")
 	
 	linear_velocity = direction_facing * lob_velocity
@@ -23,6 +29,13 @@ func _process(_delta):
 	on_animation_play()
 
 func _on_explosion_timer_timeout():
+	explosion.emit()
+	var targets = get_tree().get_nodes_in_group("Entity") + get_tree().get_nodes_in_group("Container")
+	for target in targets:
+		var distance = self.position.distance_to(target.position)
+		if distance <= explosion_radius:
+			target.hit(5)
+	
 	$RedExplosion.emitting = true
 	$YellowExplosion.emitting = true
 	$OrangeExplosion.emitting = true

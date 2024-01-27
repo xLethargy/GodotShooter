@@ -95,7 +95,8 @@ clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-value = 80.0
+max_value = 10.0
+value = 8.0
 texture_under = ExtResource("4_n5cwp")
 texture_progress = ExtResource("5_mhvlr")
 

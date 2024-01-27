@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsm4mrr7251hl"]
+
+[ext_resource type="PackedScene" uid="uid://d26ru0c6wf71j" path="res://Scenes/Projectiles/primary.tscn" id="1_cv8f7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bg3t8"]
+albedo_color = Color(0, 0, 0, 1)
+metallic_specular = 1.0
+roughness = 0.5
+emission_enabled = true
+emission = Color(0.647059, 0, 0.00392157, 1)
+emission_energy_multiplier = 30.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_vvcqk"]
+material = SubResource("StandardMaterial3D_bg3t8")
+size = Vector3(0.05, 0.05, 0.5)
+
+[node name="Primary" instance=ExtResource("1_cv8f7")]
+collision_mask = 39
+
+[node name="CollisionDetector" parent="." index="0"]
+collision_mask = 39
+
+[node name="MeshInstance3D" parent="." index="1"]
+mesh = SubResource("BoxMesh_vvcqk")

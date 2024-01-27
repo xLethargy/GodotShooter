@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8j8747j84cyk"]
+[gd_scene load_steps=7 format=3 uid="uid://b8j8747j84cyk"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_bjxt8"]
 [ext_resource type="PackedScene" uid="uid://boixoq1ha3kyu" path="res://Scenes/UI/screen_canvas.tscn" id="4_2qlot"]
@@ -7,6 +7,10 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eyvqb"]
 size = Vector3(500, 0.99, 500)
+
+[sub_resource type="Environment" id="Environment_r2v7f"]
+glow_enabled = true
+glow_intensity = 1.0
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_bjxt8")
@@ -52,6 +56,9 @@ metadata/_edit_lock_ = true
 [node name="Objects" type="Node3D" parent="."]
 
 [node name="UI" parent="." instance=ExtResource("4_2qlot")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_r2v7f")
 
 [connection signal="primary_fire" from="Player/Frog" to="." method="_on_frog_primary_fire"]
 [connection signal="secondary_fire" from="Player/Frog" to="." method="_on_frog_secondary_fire"]

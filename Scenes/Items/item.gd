@@ -28,7 +28,7 @@ func _ready():
 
 
 func _on_body_entered(_body):
-	if type == 'health' and Global.health >= 100:
+	if type == 'health' and Global.health >= 10:
 		return
 	
 	add_item()
@@ -40,4 +40,4 @@ func add_item():
 	elif type == 'grenade':
 		Global.grenade_amount += 2
 	elif type == 'health':
-		Global.health += 25
+		Global.health += 4
