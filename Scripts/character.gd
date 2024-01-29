@@ -88,7 +88,7 @@ func _on_secondary_timer_timeout():
 
 
 func hit(damage):
-	print ("player hit for " + str(damage))
+	#print ("player hit for " + str(damage))
 	if player_vulnerable:
 			player_vulnerable = false
 			Global.health -= damage
