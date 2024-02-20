@@ -4,9 +4,9 @@
 [ext_resource type="MeshLibrary" uid="uid://bab22s42s4tas" path="res://Scenes/MeshLibraryAssets/ObjectMeshLibrary2.tres" id="2_et0e2"]
 [ext_resource type="Script" path="res://Scripts/outside.gd" id="2_ppclg"]
 [ext_resource type="Material" uid="uid://c1kvm3udgo3ru" path="res://Materials/green.tres" id="3_i0tu2"]
+[ext_resource type="PackedScene" uid="uid://d07runnalonkp" path="res://Scenes/Models/milk_exploder.tscn" id="3_mofq4"]
 [ext_resource type="MeshLibrary" uid="uid://dyxy7mdltb7q7" path="res://Scenes/MeshLibraryAssets/ObjectMeshLibrary.tres" id="3_yaw43"]
 [ext_resource type="Script" path="res://Scripts/Gridmap.gd" id="4_y84ex"]
-[ext_resource type="PackedScene" uid="uid://cr06y3vygblqr" path="res://Scenes/Models/milk.tscn" id="6_br2e1"]
 [ext_resource type="PackedScene" uid="uid://cwfsvrsqm6uvc" path="res://Scenes/Items/box.tscn" id="9_8tf0g"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p2r5l"]
@@ -62,7 +62,8 @@ script = ExtResource("2_ppclg")
 [node name="Player" parent="." index="0"]
 metadata/_edit_lock_ = true
 
-[node name="EVILmilk" parent="Enemies" index="0" instance=ExtResource("6_br2e1")]
+[node name="MilkExploder" parent="Enemies" index="0" instance=ExtResource("3_mofq4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.8, 0)
 
 [node name="WallGridMap" type="GridMap" parent="Ground" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0324727, 0)

@@ -1,0 +1,104 @@
+[gd_scene load_steps=11 format=3 uid="uid://kab0xloe2l8f"]
+
+[ext_resource type="Script" path="res://Scenes/Projectiles/explosion.gd" id="1_7fs64"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_488ac"]
+emission_shape = 1
+emission_sphere_radius = 0.01
+direction = Vector3(0, 1, 0)
+spread = 136.098
+initial_velocity_min = 4.5
+initial_velocity_max = 5.0
+gravity = Vector3(0, -1, 0)
+collision_mode = 2
+collision_use_scale = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ucl3r"]
+albedo_color = Color(0.815686, 0.133333, 0.117647, 1)
+emission_enabled = true
+emission = Color(0.815686, 0.133333, 0.117647, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_i8eus"]
+material = SubResource("StandardMaterial3D_ucl3r")
+radius = 0.05
+height = 0.1
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5a128"]
+emission_shape = 1
+emission_sphere_radius = 0.01
+direction = Vector3(0, 1, 0)
+spread = 136.098
+initial_velocity_min = 1.5
+initial_velocity_max = 2.0
+gravity = Vector3(0, -1, 0)
+collision_mode = 2
+collision_use_scale = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pfoqh"]
+albedo_color = Color(0.937255, 0.968627, 0.196078, 1)
+emission_enabled = true
+emission = Color(0.937255, 0.968627, 0.196078, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_vn5qr"]
+material = SubResource("StandardMaterial3D_pfoqh")
+radius = 0.1
+height = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fj6e0"]
+emission_shape = 1
+emission_sphere_radius = 0.01
+direction = Vector3(0, 1, 0)
+spread = 136.098
+initial_velocity_min = 3.0
+initial_velocity_max = 3.5
+gravity = Vector3(0, -1, 0)
+collision_mode = 2
+collision_use_scale = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0hb12"]
+albedo_color = Color(0.960784, 0.513726, 0.188235, 1)
+emission_enabled = true
+emission = Color(0.960784, 0.513726, 0.188235, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_j6kpi"]
+material = SubResource("StandardMaterial3D_0hb12")
+radius = 0.075
+height = 0.15
+
+[node name="Explosion" type="Node3D"]
+script = ExtResource("1_7fs64")
+
+[node name="RedExplosion" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 100
+lifetime = 10.0
+one_shot = true
+speed_scale = 3.0
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_488ac")
+draw_pass_1 = SubResource("SphereMesh_i8eus")
+
+[node name="YellowExplosion" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 100
+lifetime = 10.0
+one_shot = true
+speed_scale = 3.0
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_5a128")
+draw_pass_1 = SubResource("SphereMesh_vn5qr")
+
+[node name="OrangeExplosion" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 100
+lifetime = 10.0
+one_shot = true
+speed_scale = 3.0
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_fj6e0")
+draw_pass_1 = SubResource("SphereMesh_j6kpi")
+
+[connection signal="finished" from="RedExplosion" to="." method="_on_red_explosion_finished"]

@@ -8,7 +8,7 @@ radius = 1.5
 [sub_resource type="SphereShape3D" id="SphereShape3D_21xra"]
 radius = 10.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cgudb"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_affgv"]
 resource_name = "BLUE"
 cull_mode = 2
 albedo_color = Color(0.38531, 0.906332, 0.864268, 1)
@@ -54,7 +54,7 @@ _surfaces = [{
 "index_count": 147,
 "index_data": PackedByteArray(41, 0, 5, 0, 1, 0, 41, 0, 43, 0, 5, 0, 44, 0, 14, 0, 9, 0, 44, 0, 46, 0, 14, 0, 32, 0, 7, 0, 4, 0, 32, 0, 34, 0, 7, 0, 31, 0, 8, 0, 0, 0, 31, 0, 33, 0, 8, 0, 42, 0, 9, 0, 2, 0, 42, 0, 44, 0, 9, 0, 33, 0, 10, 0, 8, 0, 33, 0, 35, 0, 10, 0, 34, 0, 13, 0, 7, 0, 34, 0, 40, 0, 13, 0, 43, 0, 11, 0, 5, 0, 43, 0, 45, 0, 11, 0, 50, 0, 15, 0, 47, 0, 50, 0, 23, 0, 15, 0, 39, 0, 20, 0, 36, 0, 39, 0, 26, 0, 20, 0, 38, 0, 21, 0, 37, 0, 38, 0, 27, 0, 21, 0, 49, 0, 18, 0, 48, 0, 49, 0, 30, 0, 18, 0, 29, 0, 37, 0, 17, 0, 29, 0, 38, 0, 37, 0, 24, 0, 36, 0, 16, 0, 24, 0, 39, 0, 36, 0, 5, 0, 35, 0, 33, 0, 5, 0, 11, 0, 35, 0, 1, 0, 33, 0, 31, 0, 1, 0, 5, 0, 33, 0, 2, 0, 34, 0, 32, 0, 2, 0, 9, 0, 34, 0, 34, 0, 51, 0, 40, 0, 51, 0, 9, 0, 14, 0, 9, 0, 51, 0, 34, 0, 25, 0, 48, 0, 19, 0, 25, 0, 49, 0, 48, 0, 28, 0, 47, 0, 22, 0, 28, 0, 50, 0, 47, 0, 6, 0, 45, 0, 43, 0, 6, 0, 12, 0, 45, 0, 0, 0, 44, 0, 42, 0, 0, 0, 8, 0, 44, 0, 8, 0, 46, 0, 44, 0, 8, 0, 10, 0, 46, 0, 3, 0, 43, 0, 41, 0, 3, 0, 6, 0, 43, 0),
 "lods": [1e-10, PackedByteArray(31, 0, 33, 0, 0, 0, 33, 0, 31, 0, 0, 0, 1, 0, 33, 0, 31, 0, 1, 0, 31, 0, 33, 0, 50, 0, 15, 0, 47, 0, 50, 0, 23, 0, 15, 0, 28, 0, 50, 0, 47, 0, 28, 0, 47, 0, 22, 0, 39, 0, 20, 0, 36, 0, 39, 0, 26, 0, 20, 0, 24, 0, 39, 0, 36, 0, 24, 0, 36, 0, 16, 0, 38, 0, 21, 0, 37, 0, 38, 0, 27, 0, 21, 0, 29, 0, 38, 0, 37, 0, 29, 0, 37, 0, 17, 0, 49, 0, 18, 0, 48, 0, 49, 0, 30, 0, 18, 0, 25, 0, 49, 0, 48, 0, 25, 0, 48, 0, 19, 0)],
-"material": SubResource("StandardMaterial3D_cgudb"),
+"material": SubResource("StandardMaterial3D_affgv"),
 "name": "BLUE",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -79,8 +79,10 @@ shadow_mesh = SubResource("ArrayMesh_2aula")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hfvwy"]
 resource_name = "EYES"
 cull_mode = 2
-albedo_color = Color(0, 0, 0, 1)
+albedo_color = Color(0.101961, 0.101961, 0.101961, 1)
 roughness = 0.0136364
+emission_enabled = true
+emission_energy_multiplier = 20.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_hwsig"]
 _surfaces = [{
@@ -227,6 +229,21 @@ shadow_mesh = SubResource("ArrayMesh_tww1n")
 [sub_resource type="BoxShape3D" id="BoxShape3D_bu1at"]
 size = Vector3(0.972412, 1.79555, 0.882813)
 
+[sub_resource type="Animation" id="Animation_sxco4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Meshes/Head:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_vo6ow"]
 resource_name = "attack"
 length = 0.6
@@ -243,21 +260,6 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0), Vector3(-0.523599, 0, 0), Vector3(0, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_sxco4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Meshes/Head:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.523599, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_83oen"]
 _data = {
 "RESET": SubResource("Animation_sxco4"),
@@ -267,7 +269,7 @@ _data = {
 [node name="Milk" type="CharacterBody3D" groups=["Enemy", "Entity", "Milk"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 collision_layer = 32
-collision_mask = 47
+collision_mask = 39
 script = ExtResource("1_6g46n")
 
 [node name="AttackArea" type="Area3D" parent="."]
@@ -288,7 +290,7 @@ shape = SubResource("SphereShape3D_21xra")
 transform = Transform3D(-0.3, 0, -2.62268e-08, 0, 0.3, 0, 2.62268e-08, 0, -0.3, 0, 0, 0)
 
 [node name="Head" type="Node3D" parent="Meshes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.458913, 0)
 
 [node name="Cube" type="MeshInstance3D" parent="Meshes/Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.859, 0)

@@ -8,12 +8,16 @@ var enemy_laser_scene : PackedScene = preload("res://Scenes/Projectiles/enemy_pr
 var grenade_scene : PackedScene = preload("res://Scenes/Projectiles/secondary.tscn")
 var item_scene : PackedScene = preload("res://Scenes/Items/item.tscn")
 
+var explosion_scene : PackedScene = preload("res://Scenes/Projectiles/explosion.tscn")
 
 func _ready():
 	for item_container in get_tree().get_nodes_in_group("Container"):
 		item_container.connect("open", _on_container_opened)
 	for sheriff in get_tree().get_nodes_in_group("Sheriff"):
 		sheriff.connect("laser", _on_sheriff_shoot)
+	for explosion in get_tree().get_nodes_in_group("Explosion"):
+		explosion.connect("explosion", _on_grenade_explosion)
+	
 	
 
 
@@ -35,10 +39,24 @@ func _on_frog_secondary_fire(grenade_position, grenade_rotation):
 	grenade.position = grenade_position
 	grenade.rotation = grenade_rotation
 	$Projectiles.add_child(grenade)
+	grenade.connect("explosion", _on_grenade_explosion)
 
 
-func _on_grenade_explosion():
-	print ("explosion")
+func _on_grenade_explosion(explosion_position, explosion_rotation, explosion_radius):
+	print ("boooom")
+	var explosion = explosion_scene.instantiate()
+	explosion.position = explosion_position
+	explosion.rotation = explosion_rotation
+	$Projectiles.add_child(explosion)
+	
+	var targets = get_tree().get_nodes_in_group("Entity") + get_tree().get_nodes_in_group("Container")
+	for target in targets:
+		var distance = explosion_position.distance_to(target.position)
+		if distance <= explosion_radius:
+			print (distance)
+			print (explosion_radius)
+		
+			target.hit(explosion_radius - distance)
 
 
 func _on_sheriff_shoot(laser_position, laser_rotation):

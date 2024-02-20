@@ -35,13 +35,13 @@ gravity = Vector3(0, -1, 0)
 collision_mode = 2
 collision_use_scale = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ucl3r"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uyxlr"]
 albedo_color = Color(0.815686, 0.133333, 0.117647, 1)
 emission_enabled = true
 emission = Color(0.815686, 0.133333, 0.117647, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_s1w6s"]
-material = SubResource("StandardMaterial3D_ucl3r")
+material = SubResource("StandardMaterial3D_uyxlr")
 radius = 0.05
 height = 0.1
 
@@ -56,13 +56,13 @@ gravity = Vector3(0, -1, 0)
 collision_mode = 2
 collision_use_scale = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pfoqh"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ohc18"]
 albedo_color = Color(0.937255, 0.968627, 0.196078, 1)
 emission_enabled = true
 emission = Color(0.937255, 0.968627, 0.196078, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_n3k5t"]
-material = SubResource("StandardMaterial3D_pfoqh")
+material = SubResource("StandardMaterial3D_ohc18")
 radius = 0.1
 height = 0.2
 
@@ -77,13 +77,13 @@ gravity = Vector3(0, -1, 0)
 collision_mode = 2
 collision_use_scale = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0hb12"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a7vby"]
 albedo_color = Color(0.960784, 0.513726, 0.188235, 1)
 emission_enabled = true
 emission = Color(0.960784, 0.513726, 0.188235, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_dstcd"]
-material = SubResource("StandardMaterial3D_0hb12")
+material = SubResource("StandardMaterial3D_a7vby")
 radius = 0.075
 height = 0.15
 
@@ -108,7 +108,7 @@ _data = {
 "light_flicker": SubResource("Animation_2bhkp")
 }
 
-[node name="Secondary" type="RigidBody3D"]
+[node name="Secondary" type="RigidBody3D" groups=["Explosion"]]
 collision_layer = 8
 collision_mask = 43
 physics_material_override = SubResource("PhysicsMaterial_0h022")

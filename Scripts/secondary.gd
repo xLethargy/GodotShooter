@@ -14,7 +14,7 @@ var flicker_bool = false
 
 var explosion_radius : int = 7
 
-signal explosion
+signal explosion(position, rotation, radius)
 
 func _ready():
 	
@@ -29,25 +29,13 @@ func _process(_delta):
 	on_animation_play()
 
 func _on_explosion_timer_timeout():
-	explosion.emit()
-	var targets = get_tree().get_nodes_in_group("Entity") + get_tree().get_nodes_in_group("Container")
-	for target in targets:
-		var distance = self.position.distance_to(target.position)
-		if distance <= explosion_radius:
-			target.hit(5)
-	
-	$RedExplosion.emitting = true
-	$YellowExplosion.emitting = true
-	$OrangeExplosion.emitting = true
-	$MeshInstance3D.queue_free()
+	explosion.emit(position, global_rotation, explosion_radius)
+
+	queue_free()
 	
 
 func _on_player_collision_timer_timeout():
 	set_collision_mask_value(3, true)
-
-
-func _on_orange_explosion_finished():
-	queue_free()
 
 func on_animation_play():
 	if (!$LightFlicker.visible and flicker_bool == false):
