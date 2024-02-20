@@ -1,6 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://dnm35jm6kt4o0"]
+[gd_scene load_steps=23 format=3 uid="uid://cr06y3vygblqr"]
 
-[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_d0oby"]
+[ext_resource type="Script" path="res://Scripts/enemy_milk.gd" id="1_6g46n"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5lc35"]
+radius = 1.5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_21xra"]
+radius = 10.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cgudb"]
 resource_name = "BLUE"
@@ -221,48 +227,118 @@ shadow_mesh = SubResource("ArrayMesh_tww1n")
 [sub_resource type="BoxShape3D" id="BoxShape3D_bu1at"]
 size = Vector3(0.972412, 1.79555, 0.882813)
 
-[node name="EVILmilk" type="CharacterBody3D"]
+[sub_resource type="Animation" id="Animation_vo6ow"]
+resource_name = "attack"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Meshes/Head:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.523599, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sxco4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Meshes/Head:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.523599, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_83oen"]
+_data = {
+"RESET": SubResource("Animation_sxco4"),
+"attack": SubResource("Animation_vo6ow")
+}
+
+[node name="Milk" type="CharacterBody3D" groups=["Enemy", "Entity", "Milk"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 collision_layer = 32
-collision_mask = 11
-script = ExtResource("1_d0oby")
+collision_mask = 47
+script = ExtResource("1_6g46n")
+
+[node name="AttackArea" type="Area3D" parent="."]
+collision_layer = 16
+collision_mask = 4
+
+[node name="AttackRadius" type="CollisionShape3D" parent="AttackArea"]
+shape = SubResource("SphereShape3D_5lc35")
+
+[node name="VisionArea" type="Area3D" parent="."]
+collision_layer = 16
+collision_mask = 4
+
+[node name="VisionRadius" type="CollisionShape3D" parent="VisionArea"]
+shape = SubResource("SphereShape3D_21xra")
 
 [node name="Meshes" type="Node3D" parent="."]
 transform = Transform3D(-0.3, 0, -2.62268e-08, 0, 0.3, 0, 2.62268e-08, 0, -0.3, 0, 0, 0)
 
-[node name="Cube" type="MeshInstance3D" parent="Meshes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36276, 0)
+[node name="Head" type="Node3D" parent="Meshes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Cube" type="MeshInstance3D" parent="Meshes/Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.859, 0)
 mesh = SubResource("ArrayMesh_uc24w")
 skeleton = NodePath("")
 
-[node name="Sphere" type="MeshInstance3D" parent="Meshes"]
-transform = Transform3D(0.336462, 0, 0, 0, 0.336462, 0, 0, 0, 0.336462, 0, 1.36276, 1.81898)
+[node name="Sphere" type="MeshInstance3D" parent="Meshes/Head"]
+transform = Transform3D(0.336462, 0, 1.77636e-15, 0, 0.336462, 0, -1.77636e-15, 0, 0.336462, -4.26326e-14, -1.32926, 1.81898)
 mesh = SubResource("ArrayMesh_eamoa")
 skeleton = NodePath("")
 
-[node name="Cube_001" type="MeshInstance3D" parent="Meshes"]
-transform = Transform3D(0.408775, 0, 0, 0, 0.0479704, 0, 0, 0, 0.408775, 0, 2.42353, 1.53142)
+[node name="Cube_001" type="MeshInstance3D" parent="Meshes/Head"]
+transform = Transform3D(0.408775, 0, 0, 0, 0.0479704, 0, 0, 0, 0.408775, 0, -0.26849, 1.53142)
 mesh = SubResource("ArrayMesh_jkj4g")
 skeleton = NodePath("")
 
-[node name="Cube_002" type="MeshInstance3D" parent="Meshes"]
-transform = Transform3D(0.185721, 0, 0, 0, 0.185721, 0, 0, 0, 0.185721, 0, 3.8162, 1.0825)
+[node name="Cube_002" type="MeshInstance3D" parent="Meshes/Head"]
+transform = Transform3D(0.185721, 0, -7.10543e-15, 0, 0.185721, 0, 7.10543e-15, 0, 0.185721, 0, 1.12418, 1.0825)
 mesh = SubResource("ArrayMesh_0nxha")
 skeleton = NodePath("")
 
 [node name="Cube_003" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 0, -2.69202, 0)
 mesh = SubResource("ArrayMesh_21mmk")
 skeleton = NodePath("")
 
 [node name="Hitbox" type="CollisionShape3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.900978, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.0933719, 0)
 shape = SubResource("BoxShape3D_bu1at")
 
-[node name="RespawnTestTimer" type="Timer" parent="."]
+[node name="Timers" type="Node" parent="."]
+
+[node name="WeaponCooldown" type="Timer" parent="Timers"]
 unique_name_in_owner = true
-wait_time = 3.0
+wait_time = 1.2
 one_shot = true
 
-[node name="WeaponCooldown" type="Timer" parent="."]
+[node name="AimTimer" type="Timer" parent="Timers"]
+unique_name_in_owner = true
 one_shot = true
 
-[connection signal="timeout" from="RespawnTestTimer" to="." method="_on_respawn_test_timer_timeout"]
+[node name="AttackAnimation" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_83oen")
+}
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
+[connection signal="body_entered" from="VisionArea" to="." method="_on_vision_area_body_entered"]
+[connection signal="body_exited" from="VisionArea" to="." method="_on_vision_area_body_exited"]
+[connection signal="timeout" from="Timers/WeaponCooldown" to="." method="_on_weapon_cooldown_timeout"]
+[connection signal="timeout" from="Timers/AimTimer" to="." method="_on_aim_timer_timeout"]

@@ -23,7 +23,7 @@ script = ExtResource("2_dc8jp")
 [node name="Player" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -6.61053)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Player/Frog" index="7"]
+[node name="OmniLight3D" type="OmniLight3D" parent="Player/Frog" index="6"]
 light_energy = 0.1
 omni_range = 2.5
 
@@ -55,7 +55,7 @@ data = {
 script = ExtResource("4_yd85r")
 metadata/_editor_floor_ = Vector3(0, -1, -29)
 
-[node name="DirectionalLight3D" parent="." index="2"]
+[node name="DirectionalLight3D" parent="." index="3"]
 sky_mode = 1
 
 [node name="Marker3D" type="Marker3D" parent="." index="4"]

@@ -1,5 +1,6 @@
 extends RigidBody3D
 
+@export var is_enemy : bool = false
 @export var speed: float = 40
 
 @onready var direction_facing: Vector3 = get_global_transform().basis.z
@@ -16,7 +17,9 @@ func _on_destroy_timer_timeout():
 
 func _on_collision_detector_body_entered(body):
 	if "hit" in body:
-		body.hit(1)
-		queue_free()
+		if body.is_in_group("Enemy") and is_enemy:
+			queue_free()
+		else:
+			body.hit(1)
 	
 	queue_free()
