@@ -43,7 +43,6 @@ func _on_frog_secondary_fire(grenade_position, grenade_rotation):
 
 
 func _on_grenade_explosion(explosion_position, explosion_rotation, explosion_radius):
-	print ("boooom")
 	var explosion = explosion_scene.instantiate()
 	explosion.position = explosion_position
 	explosion.rotation = explosion_rotation
@@ -51,12 +50,15 @@ func _on_grenade_explosion(explosion_position, explosion_rotation, explosion_rad
 	
 	var targets = get_tree().get_nodes_in_group("Entity") + get_tree().get_nodes_in_group("Container")
 	for target in targets:
-		var distance = explosion_position.distance_to(target.position)
-		if distance <= explosion_radius:
-			print (distance)
-			print (explosion_radius)
+		var distance = explosion_position.distance_to(target.global_position)
 		
-			target.hit(explosion_radius - distance)
+		if distance <= explosion_radius:
+			var extra_damage = 0
+			if distance < 2:
+				extra_damage = 2
+			
+			target.hit((explosion_radius - distance) + extra_damage)
+			
 
 
 func _on_sheriff_shoot(laser_position, laser_rotation):

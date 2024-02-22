@@ -237,6 +237,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 collision_layer = 32
 collision_mask = 39
 script = ExtResource("1_gfvqd")
+speed = 4.0
 
 [node name="AttackArea" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0262794, 0, -0.206618)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://k8vgpgtlxfv2"]
+[gd_scene load_steps=17 format=3 uid="uid://k8vgpgtlxfv2"]
 
 [ext_resource type="PackedScene" uid="uid://b8j8747j84cyk" path="res://Scenes/Levels/level.tscn" id="1_r1cm1"]
 [ext_resource type="MeshLibrary" uid="uid://bab22s42s4tas" path="res://Scenes/MeshLibraryAssets/ObjectMeshLibrary2.tres" id="2_et0e2"]
@@ -8,9 +8,8 @@
 [ext_resource type="MeshLibrary" uid="uid://dyxy7mdltb7q7" path="res://Scenes/MeshLibraryAssets/ObjectMeshLibrary.tres" id="3_yaw43"]
 [ext_resource type="PackedScene" uid="uid://cr06y3vygblqr" path="res://Scenes/Models/milk.tscn" id="4_taow8"]
 [ext_resource type="Script" path="res://Scripts/Gridmap.gd" id="4_y84ex"]
-[ext_resource type="PackedScene" uid="uid://b3am8q1f3k014" path="res://Scenes/Models/sheriff.tscn" id="5_i3ymx"]
 [ext_resource type="PackedScene" uid="uid://cwfsvrsqm6uvc" path="res://Scenes/Items/box.tscn" id="9_8tf0g"]
-[ext_resource type="PackedScene" uid="uid://bapv1335wb2pu" path="res://Scenes/Models/car.tscn" id="11_u1wrx"]
+[ext_resource type="PackedScene" uid="uid://bapv1335wb2pu" path="res://Scenes/Models/car2.tscn" id="11_u1wrx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p2r5l"]
 resource_name = "grey.001"
@@ -77,9 +76,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.8, 0)
 
 [node name="Milk" parent="Enemies" index="1" instance=ExtResource("4_taow8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.60004, 0.8, -9.5253)
-
-[node name="sheriff" parent="Enemies" index="2" instance=ExtResource("5_i3ymx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.48636, 0.778311, -1.26442)
 
 [node name="WallGridMap" type="GridMap" parent="Ground" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0324727, 0)
@@ -150,9 +146,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1025, 0, 4.10544)
 curve = SubResource("Curve3D_pgppl")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D" index="0"]
-transform = Transform3D(0.990741, 0, 0.13553, 0, 1, 0, -0.13553, 0, 0.990741, 14.0543, 0, -5.30315)
-progress = 8.59999
+transform = Transform3D(0.150132, 0, 0.988637, 0, 1, 0, -0.988637, 0, 0.150132, 10.4946, 0, 12.188)
+progress = 69.8867
 
 [node name="Car" parent="Path3D/PathFollow3D" index="0" instance=ExtResource("11_u1wrx")]
+speed = 2.0
+max_ammo_count = 6
 
 [connection signal="body_entered" from="Ground/Arch/ArchArea" to="." method="_on_arch_area_body_entered"]

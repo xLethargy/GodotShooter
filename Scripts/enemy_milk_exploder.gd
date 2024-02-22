@@ -1,7 +1,5 @@
 extends EnemyParent
 
-var can_attack : bool = false
-
 var explosion_radius : int = 7
 
 signal explosion(position, rotation, radius)
@@ -11,7 +9,7 @@ func _process(_delta):
 		look_at(Global.player_position)
 		
 		if !player_attack_nearby:
-			position = position.move_toward(Global.player_position, _delta * 2)
+			position = position.move_toward(Global.player_position, _delta * speed)
 			move_and_slide()
 	
 	if (player_attack_nearby and can_attack and !aiming):

@@ -1,6 +1,5 @@
 extends EnemyParent
 
-var can_attack : bool = false
 var weapon_choice : int = 1
 var laser_position : Vector3
 var laser_rotation : Vector3

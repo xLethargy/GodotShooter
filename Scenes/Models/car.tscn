@@ -1,0 +1,277 @@
+[gd_scene load_steps=20 format=3 uid="uid://bapv1335wb2pu"]
+
+[ext_resource type="Script" path="res://Scenes/Models/car_follow.gd" id="1_dxdsp"]
+[ext_resource type="ArrayMesh" uid="uid://do0fpalayeunh" path="res://Scenes/Models/ember_campfire.tres" id="2_4bh8v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_28v0a"]
+size = Vector3(2.01196, 2.18408, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a623v"]
+resource_name = "Material"
+cull_mode = 2
+albedo_color = Color(0.153326, 0.153326, 0.153326, 1)
+roughness = 0.4
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_trn28"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -8.01695, 2.00001, 7, 9.01695),
+"format": 34896613377,
+"index_count": 153,
+"index_data": PackedByteArray(12, 0, 25, 0, 8, 0, 25, 0, 29, 0, 22, 0, 29, 0, 12, 0, 2, 0, 25, 0, 12, 0, 29, 0, 7, 0, 2, 0, 3, 0, 27, 0, 7, 0, 6, 0, 2, 0, 7, 0, 27, 0, 7, 0, 4, 0, 6, 0, 7, 0, 5, 0, 4, 0, 5, 0, 3, 0, 1, 0, 5, 0, 7, 0, 3, 0, 1, 0, 2, 0, 0, 0, 1, 0, 3, 0, 2, 0, 5, 0, 0, 0, 4, 0, 5, 0, 1, 0, 0, 0, 13, 0, 6, 0, 4, 0, 6, 0, 11, 0, 28, 0, 11, 0, 10, 0, 23, 0, 10, 0, 6, 0, 13, 0, 6, 0, 10, 0, 11, 0, 0, 0, 13, 0, 4, 0, 0, 0, 12, 0, 13, 0, 12, 0, 9, 0, 8, 0, 9, 0, 13, 0, 10, 0, 9, 0, 12, 0, 13, 0, 26, 0, 10, 0, 9, 0, 26, 0, 23, 0, 10, 0, 20, 0, 16, 0, 15, 0, 20, 0, 14, 0, 16, 0, 20, 0, 18, 0, 21, 0, 20, 0, 15, 0, 18, 0, 19, 0, 14, 0, 17, 0, 19, 0, 16, 0, 14, 0, 17, 0, 18, 0, 19, 0, 17, 0, 21, 0, 18, 0, 19, 0, 15, 0, 16, 0, 19, 0, 18, 0, 15, 0, 14, 0, 21, 0, 17, 0, 14, 0, 20, 0, 21, 0, 24, 0, 23, 0, 26, 0, 24, 0, 11, 0, 23, 0, 22, 0, 26, 0, 25, 0, 22, 0, 24, 0, 26, 0, 25, 0, 9, 0, 8, 0, 25, 0, 26, 0, 9, 0, 24, 0, 28, 0, 11, 0, 28, 0, 22, 0, 29, 0, 28, 0, 24, 0, 22, 0, 28, 0, 27, 0, 6, 0, 27, 0, 29, 0, 2, 0, 27, 0, 28, 0, 29, 0),
+"lods": [0.912145, PackedByteArray(12, 0, 25, 0, 8, 0, 25, 0, 12, 0, 2, 0, 1, 0, 3, 0, 2, 0, 1, 0, 2, 0, 0, 0, 7, 0, 2, 0, 3, 0, 7, 0, 25, 0, 2, 0, 7, 0, 11, 0, 25, 0, 11, 0, 7, 0, 6, 0, 7, 0, 4, 0, 6, 0, 7, 0, 5, 0, 4, 0, 13, 0, 6, 0, 4, 0, 10, 0, 6, 0, 13, 0, 6, 0, 10, 0, 11, 0, 5, 0, 3, 0, 1, 0, 5, 0, 7, 0, 3, 0, 5, 0, 0, 0, 4, 0, 5, 0, 1, 0, 0, 0, 0, 0, 13, 0, 4, 0, 0, 0, 12, 0, 13, 0, 12, 0, 9, 0, 8, 0, 9, 0, 12, 0, 13, 0, 9, 0, 13, 0, 10, 0, 11, 0, 10, 0, 9, 0, 25, 0, 11, 0, 9, 0, 25, 0, 9, 0, 8, 0, 15, 0, 14, 0, 16, 0, 19, 0, 14, 0, 17, 0, 19, 0, 16, 0, 14, 0, 17, 0, 18, 0, 19, 0, 19, 0, 15, 0, 16, 0, 19, 0, 18, 0, 15, 0, 14, 0, 15, 0, 18, 0, 14, 0, 18, 0, 17, 0)],
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 30,
+"vertex_data": PackedByteArray(254, 255, 218, 182, 55, 199, 0, 0, 254, 255, 0, 0, 55, 199, 0, 0, 254, 255, 218, 182, 255, 255, 0, 0, 254, 255, 0, 0, 255, 255, 0, 0, 0, 0, 218, 182, 55, 199, 0, 0, 0, 0, 0, 0, 55, 199, 0, 0, 0, 0, 218, 182, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 254, 255, 255, 255, 0, 0, 0, 0, 255, 127, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 218, 246, 180, 234, 0, 0, 254, 255, 218, 182, 0, 0, 0, 0, 0, 0, 218, 182, 0, 0, 0, 0, 69, 37, 232, 121, 55, 199, 0, 0, 69, 37, 218, 182, 246, 161, 0, 0, 69, 37, 218, 182, 230, 151, 0, 0, 185, 218, 232, 121, 55, 199, 0, 0, 185, 218, 218, 182, 246, 161, 0, 0, 185, 218, 218, 182, 230, 151, 0, 0, 69, 37, 222, 134, 55, 199, 0, 0, 185, 218, 222, 134, 55, 199, 0, 0, 254, 255, 218, 246, 180, 234, 0, 0, 0, 0, 255, 255, 55, 199, 0, 0, 255, 127, 218, 246, 180, 234, 0, 0, 254, 255, 255, 255, 55, 199, 0, 0, 255, 127, 255, 255, 55, 199, 0, 0, 255, 127, 218, 182, 255, 255, 0, 0, 0, 0, 108, 219, 255, 255, 0, 0, 254, 255, 108, 219, 255, 255, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_knavw"]
+resource_name = "amazinggun_Cube"
+_surfaces = [{
+"aabb": AABB(-1, -1, -8.01695, 2.00001, 7, 9.01695),
+"attribute_data": PackedByteArray(255, 159, 255, 127, 255, 159, 255, 127, 255, 159, 255, 127, 255, 95, 255, 127, 255, 95, 255, 127, 255, 95, 255, 127, 255, 159, 255, 63, 255, 159, 255, 63, 255, 95, 255, 63, 255, 95, 255, 63, 255, 95, 255, 63, 255, 159, 255, 191, 255, 159, 255, 191, 255, 159, 255, 191, 255, 95, 255, 191, 255, 31, 255, 127, 255, 95, 255, 191, 255, 159, 0, 0, 255, 159, 255, 255, 255, 159, 0, 0, 255, 95, 255, 255, 255, 31, 255, 63, 255, 95, 0, 0, 255, 159, 255, 127, 0, 0, 255, 255, 255, 159, 255, 127, 255, 159, 255, 159, 0, 0, 255, 255, 255, 159, 255, 191, 255, 159, 255, 191, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 255, 159, 255, 127, 255, 159, 255, 127, 255, 159, 255, 127, 255, 223, 255, 127, 255, 223, 255, 127, 255, 223, 255, 127, 255, 95, 0, 0, 255, 95, 0, 0, 255, 95, 0, 0, 255, 223, 255, 63, 255, 223, 255, 63, 255, 223, 255, 63, 255, 223, 255, 127, 255, 223, 255, 127, 255, 223, 255, 127, 255, 95, 255, 63, 255, 95, 255, 63, 255, 95, 255, 63, 255, 159, 255, 63, 255, 159, 255, 63, 255, 159, 255, 63, 255, 159, 255, 127, 255, 159, 255, 127, 255, 159, 255, 127, 255, 95, 0, 0, 255, 95, 0, 0, 255, 95, 0, 0, 255, 95, 255, 63, 255, 95, 255, 63, 255, 95, 255, 63, 0, 0, 255, 255, 0, 0, 255, 255, 255, 159, 255, 63, 255, 79, 255, 223, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 255, 159, 255, 95, 0, 0, 255, 255, 0, 0, 255, 255, 255, 159, 255, 31, 255, 79, 255, 127, 255, 79, 255, 127, 255, 79, 255, 127, 255, 159, 255, 63, 255, 159, 255, 63, 255, 159, 255, 63, 255, 159, 255, 63, 255, 95, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 255, 95, 0, 0, 255, 223, 255, 63, 255, 95, 255, 63, 255, 159, 255, 63, 0, 0, 255, 255, 0, 0, 255, 255),
+"format": 34896613399,
+"index_count": 153,
+"index_data": PackedByteArray(36, 0, 74, 0, 25, 0, 74, 0, 83, 0, 66, 0, 83, 0, 36, 0, 7, 0, 74, 0, 36, 0, 83, 0, 22, 0, 6, 0, 9, 0, 77, 0, 22, 0, 19, 0, 6, 0, 22, 0, 77, 0, 20, 0, 11, 0, 18, 0, 20, 0, 14, 0, 11, 0, 15, 0, 8, 0, 3, 0, 15, 0, 21, 0, 8, 0, 5, 0, 7, 0, 2, 0, 5, 0, 10, 0, 7, 0, 16, 0, 1, 0, 13, 0, 16, 0, 4, 0, 1, 0, 37, 0, 17, 0, 11, 0, 17, 0, 31, 0, 78, 0, 31, 0, 28, 0, 67, 0, 28, 0, 17, 0, 37, 0, 17, 0, 28, 0, 31, 0, 0, 0, 38, 0, 12, 0, 0, 0, 34, 0, 38, 0, 35, 0, 26, 0, 23, 0, 26, 0, 39, 0, 29, 0, 26, 0, 35, 0, 39, 0, 76, 0, 30, 0, 27, 0, 76, 0, 69, 0, 30, 0, 58, 0, 46, 0, 43, 0, 58, 0, 40, 0, 46, 0, 60, 0, 52, 0, 62, 0, 60, 0, 44, 0, 52, 0, 55, 0, 41, 0, 49, 0, 55, 0, 47, 0, 41, 0, 51, 0, 54, 0, 57, 0, 51, 0, 63, 0, 54, 0, 56, 0, 45, 0, 48, 0, 56, 0, 53, 0, 45, 0, 42, 0, 61, 0, 50, 0, 42, 0, 59, 0, 61, 0, 71, 0, 68, 0, 75, 0, 71, 0, 33, 0, 68, 0, 65, 0, 75, 0, 72, 0, 65, 0, 71, 0, 75, 0, 73, 0, 27, 0, 24, 0, 73, 0, 76, 0, 27, 0, 70, 0, 80, 0, 32, 0, 80, 0, 64, 0, 82, 0, 80, 0, 70, 0, 64, 0, 79, 0, 77, 0, 19, 0, 77, 0, 81, 0, 6, 0, 77, 0, 79, 0, 81, 0),
+"lods": [0.912145, PackedByteArray(36, 0, 74, 0, 25, 0, 74, 0, 36, 0, 7, 0, 5, 0, 10, 0, 7, 0, 5, 0, 7, 0, 2, 0, 22, 0, 84, 0, 9, 0, 85, 0, 92, 0, 84, 0, 22, 0, 87, 0, 93, 0, 32, 0, 22, 0, 19, 0, 20, 0, 11, 0, 18, 0, 20, 0, 14, 0, 11, 0, 37, 0, 17, 0, 11, 0, 28, 0, 17, 0, 37, 0, 17, 0, 28, 0, 31, 0, 15, 0, 8, 0, 3, 0, 15, 0, 21, 0, 8, 0, 16, 0, 1, 0, 13, 0, 16, 0, 4, 0, 1, 0, 0, 0, 38, 0, 12, 0, 0, 0, 34, 0, 38, 0, 35, 0, 26, 0, 23, 0, 26, 0, 35, 0, 39, 0, 26, 0, 39, 0, 29, 0, 86, 0, 30, 0, 27, 0, 72, 0, 86, 0, 27, 0, 72, 0, 27, 0, 24, 0, 43, 0, 40, 0, 46, 0, 55, 0, 41, 0, 49, 0, 55, 0, 47, 0, 41, 0, 51, 0, 54, 0, 57, 0, 56, 0, 89, 0, 48, 0, 56, 0, 91, 0, 89, 0, 88, 0, 89, 0, 91, 0, 88, 0, 91, 0, 90, 0)],
+"material": SubResource("StandardMaterial3D_a623v"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 94,
+"vertex_data": PackedByteArray(254, 255, 218, 182, 55, 199, 35, 220, 254, 255, 218, 182, 55, 199, 255, 255, 254, 255, 218, 182, 55, 199, 84, 213, 254, 255, 0, 0, 55, 199, 255, 191, 254, 255, 0, 0, 55, 199, 255, 255, 254, 255, 0, 0, 55, 199, 84, 213, 254, 255, 218, 182, 255, 255, 255, 191, 254, 255, 218, 182, 255, 255, 84, 213, 254, 255, 0, 0, 255, 255, 255, 191, 254, 255, 0, 0, 255, 255, 255, 191, 254, 255, 0, 0, 255, 255, 84, 213, 0, 0, 218, 182, 55, 199, 255, 255, 0, 0, 218, 182, 55, 199, 35, 220, 0, 0, 218, 182, 55, 199, 255, 255, 0, 0, 0, 0, 55, 199, 84, 213, 0, 0, 0, 0, 55, 199, 255, 191, 0, 0, 0, 0, 55, 199, 255, 255, 0, 0, 218, 182, 255, 255, 179, 255, 0, 0, 218, 182, 255, 255, 84, 213, 0, 0, 218, 182, 255, 255, 4, 118, 0, 0, 0, 0, 255, 255, 84, 213, 0, 0, 0, 0, 255, 255, 255, 191, 0, 0, 0, 0, 255, 255, 255, 191, 254, 255, 255, 255, 0, 0, 254, 127, 254, 255, 255, 255, 0, 0, 255, 191, 254, 255, 255, 255, 0, 0, 255, 191, 255, 127, 255, 255, 0, 0, 129, 238, 255, 127, 255, 255, 0, 0, 255, 191, 0, 0, 255, 255, 0, 0, 179, 245, 0, 0, 255, 255, 0, 0, 255, 223, 0, 0, 255, 255, 0, 0, 255, 191, 0, 0, 218, 246, 180, 234, 168, 253, 0, 0, 218, 246, 180, 234, 255, 95, 0, 0, 218, 246, 180, 234, 10, 72, 254, 255, 218, 182, 0, 0, 255, 191, 254, 255, 218, 182, 0, 0, 255, 255, 254, 255, 218, 182, 0, 0, 255, 191, 0, 0, 218, 182, 0, 0, 2, 244, 0, 0, 218, 182, 0, 0, 35, 220, 0, 0, 218, 182, 0, 0, 216, 246, 69, 37, 232, 121, 55, 199, 255, 191, 69, 37, 232, 121, 55, 199, 141, 10, 69, 37, 232, 121, 55, 199, 254, 127, 69, 37, 218, 182, 246, 161, 146, 26, 69, 37, 218, 182, 246, 161, 255, 255, 69, 37, 218, 182, 246, 161, 255, 255, 69, 37, 218, 182, 230, 151, 146, 26, 69, 37, 218, 182, 230, 151, 0, 0, 69, 37, 218, 182, 230, 151, 255, 255, 185, 218, 232, 121, 55, 199, 112, 15, 185, 218, 232, 121, 55, 199, 254, 127, 185, 218, 232, 121, 55, 199, 208, 199, 185, 218, 218, 182, 246, 161, 205, 232, 185, 218, 218, 182, 246, 161, 255, 255, 185, 218, 218, 182, 246, 161, 208, 199, 185, 218, 218, 182, 230, 151, 74, 5, 185, 218, 218, 182, 230, 151, 255, 255, 185, 218, 218, 182, 230, 151, 208, 199, 69, 37, 222, 134, 55, 199, 146, 26, 69, 37, 222, 134, 55, 199, 254, 127, 69, 37, 222, 134, 55, 199, 85, 220, 185, 218, 222, 134, 55, 199, 254, 127, 185, 218, 222, 134, 55, 199, 252, 197, 185, 218, 222, 134, 55, 199, 255, 191, 254, 255, 218, 246, 180, 234, 65, 95, 254, 255, 218, 246, 180, 234, 10, 72, 254, 255, 218, 246, 180, 234, 255, 191, 0, 0, 255, 255, 55, 199, 255, 191, 0, 0, 255, 255, 55, 199, 10, 72, 0, 0, 255, 255, 55, 199, 255, 191, 255, 127, 218, 246, 180, 234, 255, 95, 255, 127, 218, 246, 180, 234, 10, 72, 254, 255, 255, 255, 55, 199, 10, 72, 254, 255, 255, 255, 55, 199, 255, 191, 254, 255, 255, 255, 55, 199, 255, 191, 255, 127, 255, 255, 55, 199, 10, 72, 255, 127, 255, 255, 55, 199, 255, 191, 255, 127, 218, 182, 255, 255, 139, 118, 0, 0, 108, 219, 255, 255, 255, 191, 0, 0, 108, 219, 255, 255, 139, 123, 0, 0, 108, 219, 255, 255, 65, 95, 254, 255, 108, 219, 255, 255, 27, 109, 254, 255, 108, 219, 255, 255, 65, 95, 254, 255, 108, 219, 255, 255, 255, 191, 254, 255, 218, 182, 255, 255, 89, 192, 0, 0, 0, 0, 255, 255, 180, 204, 0, 0, 218, 246, 180, 234, 182, 64, 0, 0, 218, 246, 180, 234, 68, 121, 69, 37, 232, 121, 55, 199, 255, 95, 69, 37, 218, 182, 246, 161, 255, 255, 185, 218, 232, 121, 55, 199, 255, 95, 185, 218, 218, 182, 246, 161, 110, 234, 254, 255, 255, 255, 55, 199, 154, 89, 254, 255, 255, 255, 55, 199, 145, 120, 237, 92, 136, 81, 255, 191, 255, 191, 170, 42, 170, 42, 0, 0, 255, 127, 255, 191, 255, 191, 170, 42, 170, 42, 255, 255, 255, 255, 170, 42, 170, 42, 0, 0, 255, 127, 255, 255, 255, 255, 170, 42, 170, 42, 255, 63, 255, 127, 237, 92, 136, 81, 255, 191, 255, 191, 84, 213, 84, 213, 0, 0, 255, 127, 255, 191, 255, 191, 41, 64, 83, 128, 84, 213, 84, 213, 255, 127, 255, 127, 84, 213, 84, 213, 0, 0, 255, 127, 255, 255, 255, 255, 255, 127, 255, 255, 255, 255, 255, 127, 255, 127, 0, 0, 255, 127, 255, 127, 255, 255, 255, 127, 80, 69, 160, 138, 255, 127, 255, 127, 255, 255, 255, 127, 115, 253, 69, 193, 255, 255, 255, 127, 255, 255, 255, 127, 0, 0, 255, 127, 255, 127, 255, 127, 255, 127, 0, 0, 32, 70, 65, 140, 237, 92, 136, 81, 255, 127, 255, 127, 255, 127, 255, 255, 28, 102, 203, 55, 255, 127, 255, 255, 16, 230, 246, 204, 255, 127, 124, 165, 255, 127, 255, 191, 16, 230, 246, 204, 124, 165, 255, 255, 255, 127, 255, 191, 111, 91, 87, 63, 255, 127, 255, 255, 242, 64, 134, 31, 181, 221, 240, 10, 255, 127, 255, 191, 242, 64, 134, 31, 28, 114, 78, 47, 255, 127, 255, 191, 242, 64, 134, 31, 16, 230, 246, 204, 255, 127, 255, 255, 110, 223, 208, 16, 255, 127, 255, 255, 255, 226, 255, 28, 255, 127, 0, 0, 91, 247, 128, 98, 255, 255, 255, 127, 255, 127, 0, 0, 255, 127, 255, 255, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 127, 0, 0, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 255, 255, 127, 255, 255, 255, 255, 255, 255, 91, 247, 128, 98, 255, 255, 255, 255, 91, 247, 128, 98, 255, 127, 0, 0, 247, 245, 154, 245, 135, 219, 68, 219, 255, 255, 255, 127, 98, 250, 99, 122, 255, 255, 255, 127, 255, 127, 198, 183, 255, 255, 255, 127, 229, 221, 162, 12, 243, 166, 11, 217, 7, 194, 8, 66)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_trn28")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l0frx"]
+size = Vector3(0.199219, 0.709229, 0.899078)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pfnkw"]
+transparency = 1
+albedo_color = Color(0, 0, 0, 0.352941)
+emission_enabled = true
+emission = Color(0.533333, 0.0745098, 0.0862745, 1)
+emission_energy_multiplier = 20.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_gvhqg"]
+material = SubResource("StandardMaterial3D_pfnkw")
+size = Vector3(0, 18.5, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_va38d"]
+albedo_color = Color(0.678431, 0, 0.227451, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vc8hh"]
+material = SubResource("StandardMaterial3D_va38d")
+size = Vector3(4, 1.5, 8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8eed1"]
+albedo_color = Color(0.556863, 0.72549, 0.996078, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_od3sx"]
+material = SubResource("StandardMaterial3D_8eed1")
+size = Vector3(3, 1.5, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_757sc"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ru8sn"]
+material = SubResource("StandardMaterial3D_757sc")
+radius = 1.0
+is_hemisphere = true
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vqivu"]
+radius = 20.0
+
+[sub_resource type="Animation" id="Animation_nmp7t"]
+resource_name = "laser"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("amazinggun/RayCast3D/LaserPivot/Laser:mesh:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 18.5, 0), Vector3(0, 18.5, 0), Vector3(0.1, 18.5, 0.1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fire"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("amazinggun/ember/Cube:transparency")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.8, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.0, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("amazinggun/ember:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.7, 0.7, 0.7), Vector3(0.7, 0.7, 0.7), Vector3(1.4, 1.4, 1.4)]
+}
+
+[sub_resource type="Animation" id="Animation_likue"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("amazinggun/RayCast3D/LaserPivot/Laser:mesh:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 18.5, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("amazinggun/ember:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.7, 0.7, 0.7)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5c7sa"]
+_data = {
+"RESET": SubResource("Animation_likue"),
+"laser": SubResource("Animation_nmp7t")
+}
+
+[node name="Car" type="CharacterBody3D" groups=["Car", "Enemy", "Entity"]]
+collision_layer = 32
+collision_mask = 39
+script = ExtResource("1_dxdsp")
+max_health = 10
+
+[node name="Hitbox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.746826, 0)
+shape = SubResource("BoxShape3D_28v0a")
+
+[node name="amazinggun" type="CharacterBody3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.49827, 0.15352)
+collision_layer = 32
+collision_mask = 39
+
+[node name="Meshes" type="Node3D" parent="amazinggun"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="Cube" type="MeshInstance3D" parent="amazinggun/Meshes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.33664, 0)
+mesh = SubResource("ArrayMesh_knavw")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="amazinggun"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0145264, -0.351181)
+shape = SubResource("BoxShape3D_l0frx")
+
+[node name="RayCast3D" type="RayCast3D" parent="amazinggun"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.018051, 0.521566, -1.59601)
+target_position = Vector3(0, -18.5, 0)
+collision_mask = 4
+
+[node name="LaserPivot" type="Node3D" parent="amazinggun/RayCast3D"]
+
+[node name="Laser" type="MeshInstance3D" parent="amazinggun/RayCast3D/LaserPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.24341, 4.76837e-07)
+mesh = SubResource("BoxMesh_gvhqg")
+skeleton = NodePath("../..")
+
+[node name="ember" type="Node3D" parent="amazinggun"]
+transform = Transform3D(0.7, 0, 0, 0, -3.0598e-08, 0.7, 0, -0.7, -3.0598e-08, 0, 0.543775, -1.60417)
+
+[node name="Cube" type="MeshInstance3D" parent="amazinggun/ember"]
+transform = Transform3D(0.497329, 0, 0, 0, 0.497329, 3.55271e-15, 0, -3.55271e-15, 0.497329, 0, 0.95701, 0)
+transparency = 1.0
+mesh = ExtResource("2_4bh8v")
+skeleton = NodePath("")
+
+[node name="Meshes" type="Node3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44003, 0)
+mesh = SubResource("BoxMesh_vc8hh")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.94003, 0)
+mesh = SubResource("BoxMesh_od3sx")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="Wheel" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 1, 0.3, 3)
+mesh = SubResource("SphereMesh_ru8sn")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="Wheel2" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 1, 0.3, -3)
+mesh = SubResource("SphereMesh_ru8sn")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="Wheel3" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -1, 0.3, -3)
+mesh = SubResource("SphereMesh_ru8sn")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="Wheel4" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -1, 0.3, 3)
+mesh = SubResource("SphereMesh_ru8sn")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="AttackArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0262794, 0, -0.206618)
+collision_layer = 16
+collision_mask = 4
+
+[node name="AttackRadius" type="CollisionShape3D" parent="AttackArea"]
+shape = SubResource("SphereShape3D_vqivu")
+
+[node name="AimTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5c7sa")
+}
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
+[connection signal="timeout" from="AimTimer" to="." method="_on_aim_timer_timeout"]
